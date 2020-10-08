@@ -10,7 +10,7 @@ class Atribute extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected fillable = ['name',
+    protected $fillable = ['name',
                             'description',
                             'from_date',
                             'expiry_date',

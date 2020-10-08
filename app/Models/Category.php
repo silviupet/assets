@@ -10,13 +10,12 @@ class Category extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected fillable [
-        'name';
-        'asset_id';
+    protected $fillable = [
+        'name'
         ];
     public function assets()
     {
-        return $this->hasMany('App\Models\Asset')
+        return $this->hasMany('App\Models\Asset');
     }
 
 }

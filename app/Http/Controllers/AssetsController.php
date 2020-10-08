@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Asset;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
+
 
 class AssetsController extends Controller
 {
+//middlware
+    public function __construct()
+    {
+        $this->middleware('auth');
 
+    }
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +39,11 @@ class AssetsController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::pluck('name','id')->all();
+//        returneaza un array valoarea = ia namne din category iar daca vrem sa ii punem si keie  - key este al doilea parametru al Pluck()
+
+        return view('assets.create', compact('categories'));
+
     }
 
     /**
@@ -40,7 +54,20 @@ class AssetsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:50',
+            'category_id'=>'required'
+        ]);
+        $user = Auth::user()->id;
+
+        $validatedData['user_id'] = $user;
+
+
+
+       Asset::create($validatedData);
+        $request->session()->flash('comment_message','asset uploaded succsesfuly');
+
+        return redirect()->route('assets.index');
     }
 
     /**
@@ -51,7 +78,7 @@ class AssetsController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -62,7 +89,9 @@ class AssetsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $asset = Asset::findOrFail($id);
+        $categories = Category::pluck('name', 'id')-> all();
+        return view('assets.edit', compact('asset', 'categories'));
     }
 
     /**
@@ -74,7 +103,14 @@ class AssetsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->validate([
+            'name' => 'required|max:50',
+            'category_id'=>'required'
+        ]);
+        Auth::user()->assets()->whereId($id)->first()->update($input);
+        $request->session()->flash('comment_message', 'Asset update succsesfully');
+        return redirect()->route('assets.index');
+
     }
 
     /**
@@ -85,6 +121,11 @@ class AssetsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $asset = Asset::findOrFail($id);
+
+
+        $asset->delete();
+       Session::flash('comment_message', 'Asset deleted succsesfully');
+        return redirect()->route('assets.index');
     }
 }

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Document extends Model
 {
     use HasFactory;
-    protected fillable = ['name',
+    protected $fillable = ['name',
                             'link',
                             'atribute_id',
                         ];

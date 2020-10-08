@@ -10,12 +10,12 @@ class Tag extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected fillable [
+    protected $fillable =  [
         'name'
         ];
     public function atributes()
     {
-       return $this->belongsToMany('App\Models\Atribute')
+       return $this->belongsToMany('App\Models\Atribute');
     }
 
 

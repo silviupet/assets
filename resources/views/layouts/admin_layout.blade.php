@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+   <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -26,23 +26,23 @@
     <div class="container" style="margin:1px">
         <div class="row">
 
-{{--            @if(auth::check())--}}
+           @if(Auth::check())
 
                 <div class="col-lg-2">
                     <ul class="list-group">
 
                         <li class="list-group-item">
-                            <a href="#">Home</a>
+                            <a href={{route('assets.index')}}>Team Assets</a>
                         </li>
 
                         <li class="list-group-item">
-                            <a href="#">Create a new post</a>
+                            <a href={{route('assets.create')}}>Create a New Asset</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="#">Create a new category</a>
+                            <a href={{route('categories.index')}}>Category List/Create</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="#">All categories</a>
+                            <a href={{route('tags.index')}}>Tags List/Create</a>
                         </li>
                         <li class="list-group-item">
                             <a href="#">Create a new tag</a>
@@ -83,12 +83,13 @@
                     </ul>
                 </div>
 
-{{--            @endif--}}
+            @endif
 
             <div class="col-lg-10">
 
 
                 @yield('content_page')
+
             </div>
         </div>
     </div>
