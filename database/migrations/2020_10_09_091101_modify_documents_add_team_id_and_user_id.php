@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifyCategoriesTableRemoveAssetId extends Migration
+class ModifyDocumentsAddTeamIdAndUserId extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class ModifyCategoriesTableRemoveAssetId extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->dropColumn('asset_id');
+        Schema::table('documents', function (Blueprint $table) {
+            $table->integer('user_id');
+            $table->integer('team_id');
         });
     }
 
@@ -25,7 +26,7 @@ class ModifyCategoriesTableRemoveAssetId extends Migration
      */
     public function down()
     {
-        Schema::table('categories', function (Blueprint $table) {
+        Schema::table('documents', function (Blueprint $table) {
             //
         });
     }

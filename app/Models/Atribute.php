@@ -19,6 +19,8 @@ class Atribute extends Model
                             'vendor',
                             'other_condition',
                             'document_id',
+                            'user_id',
+                            'team_id'
                             ];
 
      public function assets()
@@ -28,11 +30,11 @@ class Atribute extends Model
 
      public function documents()
      {
-         return $this->hasMany('App\Models\Documents')
+         return $this->hasMany('App\Models\Documents');
      }
 
      public function tags()
      {
-         return $this->belongsToMany('App\Models\Tag')
+         return $this->belongsToMany('App\Models\Tag');
      }
 }

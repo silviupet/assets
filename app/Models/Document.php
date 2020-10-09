@@ -12,11 +12,13 @@ class Document extends Model
     protected $fillable = ['name',
                             'link',
                             'atribute_id',
+                            'user_id',
+                            'team_id'
                         ];
     use SoftDeletes;
     public function asset()
     {
-       return $this->belongsTo('App\Models\Atribute')
+       return $this->belongsTo('App\Models\Atribute');
 
 
     }
