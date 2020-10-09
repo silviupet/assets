@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Asset;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Models\User;
+
+
 
 
 
@@ -18,13 +21,31 @@ class AssetsController extends Controller
         $this->middleware('auth');
 
     }
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
+
+
+//        if(Auth::user()->isEditor())return ('is editor'); else return ('nu este editor');
+
+// $b = $a->currentTeamName();
+//// dd($b);
+
+        $a = Auth::user()->userRoleInCurrentTeam();
+//        dd($a);
+    //     $currentTeam =Auth::user()->currentTeam->name;
+//        dd($currentTeam);
+//
+//     $roleInTeam = Auth::user()->teamRole($currentTeam)->name;
+//    dd($roleInTeam);
+
+
+
         $assets = Asset::all();
 
         return view('assets.index', compact ('assets'));

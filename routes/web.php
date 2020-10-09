@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,8 @@ Route::resource('assets', 'AssetsController');
 Route::resource('categories', 'CategoriesController');
 
 Route::resource('tags', 'TagsController');
+
+//Route::get('/currentTeamName' , function(){
+//
+//return (Auth::user()->currentTeam->name);
+//});
