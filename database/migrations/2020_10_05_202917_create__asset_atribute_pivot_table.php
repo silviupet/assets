@@ -13,7 +13,7 @@ class CreateAssetAtributePivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('asset-atribute', function (Blueprint $table) {
+        Schema::create('asset_atribute', function (Blueprint $table) {
             $table->id();
             $table->foreignId('asset_id')->constrained('assets');
             $table->foreignId('atribute_id')->constrained('atributes');
@@ -28,6 +28,6 @@ class CreateAssetAtributePivotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asset-atribute');
+        Schema::dropIfExists('asset_atribute');
     }
 }

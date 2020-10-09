@@ -13,7 +13,7 @@ class CreateAtributeTagPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('atribute-tag', function (Blueprint $table) {
+        Schema::create('atribute_tag', function (Blueprint $table) {
             $table->id();
             $table->foreignId('atribute_id')->constrained('atributes');
             $table->foreignId('tag_id')->constrained('tags');
@@ -28,6 +28,6 @@ class CreateAtributeTagPivotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asset-atribute');
+        Schema::dropIfExists('atribute_tag');
     }
 }

@@ -17,7 +17,6 @@ class CreateTagsTable extends Migration
             $table->id();
             $table->string('name',50);
             $table->softDeletes();
-
             $table->timestamps();
         });
     }
@@ -31,8 +30,6 @@ class CreateTagsTable extends Migration
     {
 
        Schema::dropIfExists('tags');
-
-      Schema::dropIfExists('tags');
 
         Schema::table('tags', function (Blueprint $table) {
             $table->dropSoftDeletes();

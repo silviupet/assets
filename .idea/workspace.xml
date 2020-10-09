@@ -21,6 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="efb7933a-837b-4c15-bcf4-366d44b0cfc2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_05_193720_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_05_193720_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_05_195225_create_tags_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_05_195225_create_tags_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_05_202917_create__asset_atribute_pivot_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_05_202917_create__asset_atribute_pivot_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_05_204509_create_atribute_tag_pivot_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_05_204509_create_atribute_tag_pivot_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,6 +221,7 @@
       <workItem from="1602149365233" duration="18126000" />
       <workItem from="1602225524290" duration="673000" />
       <workItem from="1602272773157" duration="182000" />
+      <workItem from="1602274435381" duration="6002000" />
     </task>
     <servers />
   </component>
