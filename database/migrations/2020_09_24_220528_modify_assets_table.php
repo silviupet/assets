@@ -15,7 +15,7 @@ class ModifyAssetsTable extends Migration
     {
         Schema::table('assets', function (Blueprint $table) {
 
-            $table->string('name',50);
+//            $table->string('name',50);
             $table->foreignId('user_id')->constrained("users");
 
         });

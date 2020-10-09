@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifyAssetsTableAddDeletedAtColumn extends Migration
+class ModifyAssetAddTeamId extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class ModifyAssetsTableAddDeletedAtColumn extends Migration
     public function up()
     {
         Schema::table('assets', function (Blueprint $table) {
-            $table->dateTime('deleted_at')->after('updated_at')->nullable();
+            $table->integer('team_id');
         });
     }
 

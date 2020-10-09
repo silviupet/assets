@@ -16,6 +16,8 @@ class Asset extends Model
         'name',
         'user_id',
         'category_id',
+        'user_id',
+        'team_id'
 
     ];
 //    one to many - un user mai multe asseturi

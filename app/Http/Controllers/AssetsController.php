@@ -80,8 +80,12 @@ class AssetsController extends Controller
             'category_id'=>'required'
         ]);
         $user = Auth::user()->id;
+        $team_id = Auth::user()->currentTeamId();
+
 
         $validatedData['user_id'] = $user;
+        $validatedData['team_id'] = $team_id;
+
 
 
 
