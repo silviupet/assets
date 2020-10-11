@@ -176,10 +176,10 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blog_laravel6.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -214,6 +214,10 @@
       <workItem from="1602079420821" duration="18755000" />
       <workItem from="1602149365233" duration="18126000" />
       <workItem from="1602225524290" duration="673000" />
+      <workItem from="1602272773157" duration="182000" />
+      <workItem from="1602274435381" duration="6912000" />
+      <workItem from="1602319597430" duration="1148000" />
+      <workItem from="1602435018697" duration="1798000" />
     </task>
     <servers />
   </component>
@@ -233,6 +237,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="512" y="236" key="#Notifications" timestamp="1602436372672">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="512" y="236" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1602436372672" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601892421716">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -249,17 +257,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1601575437327" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1601061473063">
+    <state x="277" y="57" key="SettingsEditor" timestamp="1602436465727">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1601061473063" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1601063944806">
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602436465727" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1602436696869">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1601063944806" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602008675497">
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1602436696869" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602435464046">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602008675497" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602435464046" />
   </component>
 </project>

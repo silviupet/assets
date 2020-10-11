@@ -11,7 +11,9 @@ class Category extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = [
-        'name'
+        'name',
+        'user_id',
+        'team_id'
         ];
     public function assets()
     {
