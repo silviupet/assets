@@ -16,7 +16,7 @@ class Document extends Model
                             'team_id'
                         ];
     use SoftDeletes;
-    public function asset()
+    public function atributes()
     {
        return $this->belongsTo('App\Models\Atribute');
 

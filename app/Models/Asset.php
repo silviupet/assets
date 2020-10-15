@@ -26,7 +26,7 @@ class Asset extends Model
         return $this->belongsTo('App\Models\User');
     }
 //    many to many un assets are mai multe atrinute si invers
-    public function atribute()
+    public function atributes()
     {
         return $this->belongsToMany('App\Models\Atribute');
     }

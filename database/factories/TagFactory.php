@@ -22,9 +22,9 @@ class TagFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $faker->randomElement(['PHP', 'Programming', 'JavaScript', 'Life', 'Travel','Coffee', 'Money', 'Women', 'Men', 'Love' ]),
+            'name' => $this->faker->randomElement(['PHP', 'Programming', 'JavaScript', 'Life', 'Travel','Coffee', 'Money', 'Women', 'Men', 'Love' ]),
             'user_id'=>$this->faker->numberBetween(1,10),
-            'team_id'=>$this->faker->numberBetween(1,3),
+            'team_id'=>$this->faker->numberBetween(1,10),
         ];
     }
 }

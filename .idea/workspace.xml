@@ -19,7 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb7933a-837b-4c15-bcf4-366d44b0cfc2" name="Default Changelist" comment="" />
+    <list default="true" id="efb7933a-837b-4c15-bcf4-366d44b0cfc2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Asset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Atribute.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Atribute.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Document.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Document.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Team.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/AssetFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AssetFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/AtributeFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AtributeFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/CategoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CategoryFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/DocumentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/DocumentFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/TagFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TagFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -176,7 +188,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blog_laravel6.0" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -218,6 +230,7 @@
       <workItem from="1602274435381" duration="6912000" />
       <workItem from="1602319597430" duration="1148000" />
       <workItem from="1602435018697" duration="1798000" />
+      <workItem from="1602753222856" duration="13824000" />
     </task>
     <servers />
   </component>
@@ -245,14 +258,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1601892421716" />
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602182594319">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602782010112">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1602182594319" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602079433204">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1602782010112" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602774038561">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602079433204" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602774038561" />
     <state x="604" y="336" key="NewPhpFileDialog" timestamp="1601575437327">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

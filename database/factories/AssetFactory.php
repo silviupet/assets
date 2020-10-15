@@ -22,8 +22,10 @@ class AssetFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'team_id' =>$this->faker->numberBetween(1,3),
+            'name' => $this->faker->sentence(2,7),
+            'category_id'=> $this->faker->numberBetween(1,10),
+           'user_id' => $this->faker->numberBetween(1,10),
+            'team_id' =>$this->faker->numberBetween(1,10)
 
         ];
     }

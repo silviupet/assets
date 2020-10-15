@@ -2,17 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Document;
+use App\Models\Team;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
-class DocumentFactory extends Factory
+class TeamFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Document::class;
+    protected $model = Team::class;
 
     /**
      * Define the model's default state.
@@ -22,10 +23,9 @@ class DocumentFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->randomElement(['contract', 'factura', 'polita', 'garantie' ]),
-            'link'=> $this->faker->imageUrl($width = 640, $height = 480),
             'user_id'=>$this->faker->numberBetween(1,10),
-            'team_id'=>$this->faker->numberBetween(1,10)
+            'name'=>Str::random(10),
+            'personal_team'=> 1
         ];
     }
 }

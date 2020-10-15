@@ -30,7 +30,7 @@ class Atribute extends Model
 
      public function documents()
      {
-         return $this->hasMany('App\Models\Documents');
+         return $this->hasMany('App\Models\Document');
      }
 
      public function tags()
