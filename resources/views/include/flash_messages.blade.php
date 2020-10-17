@@ -6,7 +6,12 @@
 
     </div>
 
+@elseif(Session::has('danger_message'))
 
+    <div class="alert alert-danger col-sm-12">
 
+        <p class="text-center">{{session('danger_message')}}</p>
+
+    </div>
 
 @endif

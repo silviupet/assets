@@ -33,20 +33,24 @@ class AssetsController extends Controller
 
 //        if(Auth::user()->isEditor())return ('is editor'); else return ('nu este editor');
 
-// $b = $a->currentTeamName();
-//// dd($b);
+//   dd(Auth::user()->currentTeamName());
+//        dd(Auth::user()->currentTeamId());
 
-        $a = Auth::user()->userRoleInCurrentTeam();
-//        dd($a);
-    //     $currentTeam =Auth::user()->currentTeam->name;
-//        dd($currentTeam);
+//        dd(Auth::user()->userRoleInCurrentTeam());
+//       dd(Auth::user()->usersOfCurrentTeam());
 //
-//     $roleInTeam = Auth::user()->teamRole($currentTeam)->name;
-//    dd($roleInTeam);
+
+//
 
 
 
-        $assets = Asset::all();
+//        $usersOfCurrentTeam = Auth::user()->usersOfCurrentTeam();
+
+
+        $team_id = Auth::user()->currentTeamId();
+
+        $assets = Asset::where('team_id', $team_id)->get();
+//
 
         return view('assets.index', compact ('assets'));
 
@@ -60,8 +64,10 @@ class AssetsController extends Controller
      */
     public function create()
     {
-        $categories = Category::pluck('name','id')->all();
-//        returneaza un array valoarea = ia namne din category iar daca vrem sa ii punem si keie  - key este al doilea parametru al Pluck()
+        $team_id = Auth::user()->currentTeamId();
+        $categories = Category::where('team_id', $team_id)->pluck('name', 'id')->unique()->all();
+
+//        returneaza un array toata coloana name valoarea = ia namne din category iar daca vrem sa ii punem si keie  - key este al doilea parametru al Pluck()
 
         return view('assets.create', compact('categories'));
 
@@ -78,13 +84,15 @@ class AssetsController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:50',
             'category_id'=>'required'
+
         ]);
         $user = Auth::user()->id;
-        $team_id = Auth::user()->currentTeamId();
 
 
+        $team_id=Auth::user()->currentTeamId();
         $validatedData['user_id'] = $user;
-        $validatedData['team_id'] = $team_id;
+        $validatedData['team_id']=$team_id;
+
 
 
 
@@ -114,10 +122,48 @@ class AssetsController extends Controller
      */
     public function edit($id)
     {
-        $asset = Asset::findOrFail($id);
-        $categories = Category::pluck('name', 'id')-> all();
-        return view('assets.edit', compact('asset', 'categories'));
-    }
+        if (Auth::user()->isAdmin() || Auth::user()->isOwner()) {
+            $team_id = Auth::user()->currentTeamId();
+            $asset = Asset::where('id', $id)
+                           ->where('team_id' , $team_id )->first();
+
+                        if($asset) {
+
+                $categories = Category::where('team_id', $team_id)->pluck('name', 'id')->unique()->all();
+                return view('assets.edit', compact('asset', 'categories'));
+                         } else {
+                                 Session::flash('danger_message','nu ai selectat bine administratore');
+
+                                 return redirect()->route('assets.index');
+                                }
+        } elseif(Auth::user()->isEditor()){
+            $team_id = Auth::user()->currentTeamId();
+            $asset = Asset::where('id', $id)
+                ->where('user_id' , Auth::user()->id )
+                        ->where('team_id' , $team_id )->first();
+                         if($asset) {
+
+                             $categories = Category::where('team_id', $team_id)->pluck('name', 'id')->unique()->all();
+                             return view('assets.edit', compact('asset', 'categories'));
+                         } else {
+                             Session::flash('danger_message','nu ai selectat bine editore');
+
+                             return redirect()->route('assets.index');
+                         }
+        }
+
+            else {
+               Session::flash('danger_message','nu poti modifica daca nu esti administrator owner sau editor');
+
+                return redirect()->route('assets.index');
+            };
+        }
+
+
+
+
+
+
 
     /**
      * Update the specified resource in storage.
@@ -127,16 +173,52 @@ class AssetsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+{
+    if (Auth::user()->isAdmin() || Auth::user()->isOwner()) {
+
         $input = $request->validate([
             'name' => 'required|max:50',
+            'category_id' => 'required'
+        ]);
+        $team_id = Auth::user()->currentTeamId();
+        $asset = Asset::where('id', $id)
+                ->where ('team_id' , $team_id)
+                ->first();
+            if($asset){
+                $asset->update($input);
+                $request->session()->flash('comment_message', 'Asset Updated succesfully');
+                return redirect()->route('assets.index');
+            }else{
+                $request->session()->flash('danger_message' , 'nu ai gasit assetul administratore');
+                return redirect()->route('assets.index');
+            }
+
+
+    } elseif(Auth::user()->isEditor()){
+        $input = $request->validate([
+            'name'=>'required|max:50',
             'category_id'=>'required'
         ]);
-        Auth::user()->assets()->whereId($id)->first()->update($input);
-        $request->session()->flash('comment_message', 'Asset update succsesfully');
+        $asset = Asset::where('id', $id)
+                        ->where('user_id', Auth::user()->id)
+                        ->first();
+            if($asset){
+                $asset->update($input);
+                $request->session()->flash('comment_message', 'asset updated succesfuly');
+                return redirect()->route('assets.index');
+            }else{
+                $request->session()->flash('danger_message', 'nu ai selectat bine assetul editore');
+                return redirect()->route('assets.index');
+            };
+
+
+    }else{
+        $request->session()->flash('danger_message','trebuie sa fi administrator, owner sau editor se modifici assetul');
         return redirect()->route('assets.index');
 
-    }
+    };
+
+}
 
     /**
      * Remove the specified resource from storage.
@@ -146,11 +228,40 @@ class AssetsController extends Controller
      */
     public function destroy($id)
     {
-        $asset = Asset::findOrFail($id);
+        if(Auth::user()->isAdmin() || Auth::user()->isOwner()){
+            $team_id = Auth::user()->currentTeamId();
+            $asset = Asset::where('id', $id)
+                ->where('team_id', $team_id)->first();
+                if($asset){
+                    $asset->delete();
+                    Session::flash('comment_message', 'Asset deleted succsesfully');
+                    return redirect()->route('assets.index');
+                }else{
+                    Session::flash('danger_message', 'Nu ai gasit Assetul administratore');
+                    return redirect()->route('assets.index');
+                }
+
+        }elseif (Auth::user()->isEditor()){
+            $asset = Asset::where('id', $id)
+                            ->where('user_id', Auth::user()->id)->first();
+                if($asset){
+                    $asset ->delete();
+                    Session::flash('comment_message', 'Asset deleted succsesfully' );
+                    return redirect()->route('assets.index');
+                }else{
+                    Session::flash('danger_message', 'nu ai gasit assetul editore');
+                    return redirect()->route('assets.index');
+                }
+
+        } else{
+            Session::flash('danger_message' , 'trebuie sa fi administrator, owner  sau editor sa stergi acest mesaj' );
+            return redirect()->route('assets.index');
+        }
 
 
-        $asset->delete();
-       Session::flash('comment_message', 'Asset deleted succsesfully');
-        return redirect()->route('assets.index');
+
+
+
+
     }
 }

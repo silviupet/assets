@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class CategoriesController extends Controller
@@ -21,7 +22,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories= Category::all();
+        $team_id = Auth::user()->currentTeamId();
+        $categories= Category::where('team_id' , $team_id)->get();
         return view('categories.index',compact ('categories'));
     }
 
@@ -44,8 +46,8 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $validatedData =$request->validate(['name'=> 'required|max:50']);
-
-
+        $validatedData['user_id'] = Auth::user()->id;
+        $validatedData['team_id'] = Auth::user()->currentTeamId();
         Category::create($validatedData);
         $request->session()->flash('comment_message','category added ');
 

@@ -133,4 +133,22 @@ class User extends Authenticatable
         $currentTeamName = Auth::user()->currentTeam;
         return Auth::User()->TeamRole($currentTeamName)->name;
     }
+
+    /**
+     * Get the user members and owner  of current Team.
+     *
+     *
+     * @return array
+     */
+    public function usersOfCurrentTeam()
+    {
+        $users_id = [];
+        $users = Auth::user()->CurrentTeam->allUsers();
+
+        foreach ($users as $user) {
+            $users_id[] = $user->id;
+        }
+        return $users_id;
+    }
+
 }

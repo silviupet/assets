@@ -10,6 +10,7 @@
 {{--        <div class="col-sm-12">--}}
 
 
+
             {!!Form::model($asset, ['method'=>'PATCH', 'action'=> ['AssetsController@update', $asset->id],'files' => true])!!}
 
                 <div class="form-group">

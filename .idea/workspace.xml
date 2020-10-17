@@ -21,16 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="efb7933a-837b-4c15-bcf4-366d44b0cfc2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Atribute.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Atribute.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Document.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Document.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Team.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/AssetFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AssetFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/AtributeFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AtributeFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CategoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CategoryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/DocumentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/DocumentFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/TagFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TagFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AssetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AssetsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/TeamFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TeamFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_09_090402_modifi_category_add_user_id_and_team_id.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_09_090402_modifi_category_add_user_id_and_team_id.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/assets/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/assets/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/include/flash_messages.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/include/flash_messages.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +54,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="dummy://restClient/response28.html" root0="SKIP_INSPECTION" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -200,11 +202,626 @@
       <recent name="C:\xampp\htdocs\assets\public\css" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602972216000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjFhTTRLMmhMOXVUS09WMEFxZVRWdnc9PSIsInZhbHVlIjoiTHEzdUYxOXoxVzZQRGVpYy9ydkh4SWlxdnN6Q0F1ZlkzU1d3UkFYNkdOWmhvMFFyMmdnT2MwSXdRUHZDUitQSmwvS01uVTBuYlZqWjFwTG5lT3NDUFBIckUzZERrNElmalloS3AxNS9BclFXYlFEM096cjJsRkhSUklkbkpMN2oiLCJtYWMiOiI0YWY5ZjU1NWI2NTkyMzhjMDJjNjVjMTI2YWQyMmIyMjA5M2U5MWZjNmVhZTE4NjkxMjY1MDUxMzQyM2Q2MjEzIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602974862000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImlqSUgzZFdMN0o4dThNTVFob0poRUE9PSIsInZhbHVlIjoidGRKNjl1RHpTZVJSbExDVEg2S05iTCtSSDZUMmZ1UTJDQlhEcjNoK2dNbVpKdkZMNHpvSEpEZUw0Y3h0S1JNQ0pwdnFIZHBBdlJZczR6Q05LZkJBa1pWTytZc2R2clJzcTBNZXdCczFobGFrelR1eUlWUzVFbklMRE91RUFJSi8iLCJtYWMiOiJhNDhjNDQ0N2RhYTMzOTI2N2E0NGNiNjMzNzM5OGU3YzgyNWM2MDZhMjBjZTk2ZmVlNGVjZDg5OGU0NTk4YTc1In0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="asset modificat" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="category_id" />
+                <option name="value" value="12" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_token" />
+                <option name="value" value="KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_method" />
+                <option name="value" value="DELETE" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602972216000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjFhTTRLMmhMOXVUS09WMEFxZVRWdnc9PSIsInZhbHVlIjoiTHEzdUYxOXoxVzZQRGVpYy9ydkh4SWlxdnN6Q0F1ZlkzU1d3UkFYNkdOWmhvMFFyMmdnT2MwSXdRUHZDUitQSmwvS01uVTBuYlZqWjFwTG5lT3NDUFBIckUzZERrNElmalloS3AxNS9BclFXYlFEM096cjJsRkhSUklkbkpMN2oiLCJtYWMiOiI0YWY5ZjU1NWI2NTkyMzhjMDJjNjVjMTI2YWQyMmIyMjA5M2U5MWZjNmVhZTE4NjkxMjY1MDUxMzQyM2Q2MjEzIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602974836000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkszUmkxcGMrT01sV1BLam50cGZhamc9PSIsInZhbHVlIjoicTFCczAxRTZqbjBxMzZIUVBTWUw3NFFBK2VEVWYvMHJBMHcvRjlndlVzZXZBYjlhakFOc1dGWUVpZm1jMm9LdVRpVDM3ZHJ6VnhwK0l0UnZSNy9ueTJZRDVoMHE4RDIzVVp1VkdNdm1zNkV3ekw1WFAvN0RZM1oyck9XbVNRTk8iLCJtYWMiOiJmODcxYWQ3ZTg1ZTlkMGQxZTEzNmE2ODRhMzE2YmI1NjVlYjJhNTFhZjQ0MjA3ZTMzYWNjNTYxY2Q3M2U3Nzc0In0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/18" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="asset modificat" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="category_id" />
+                <option name="value" value="12" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_token" />
+                <option name="value" value="KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_method" />
+                <option name="value" value="DELETE" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602972216000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjFhTTRLMmhMOXVUS09WMEFxZVRWdnc9PSIsInZhbHVlIjoiTHEzdUYxOXoxVzZQRGVpYy9ydkh4SWlxdnN6Q0F1ZlkzU1d3UkFYNkdOWmhvMFFyMmdnT2MwSXdRUHZDUitQSmwvS01uVTBuYlZqWjFwTG5lT3NDUFBIckUzZERrNElmalloS3AxNS9BclFXYlFEM096cjJsRkhSUklkbkpMN2oiLCJtYWMiOiI0YWY5ZjU1NWI2NTkyMzhjMDJjNjVjMTI2YWQyMmIyMjA5M2U5MWZjNmVhZTE4NjkxMjY1MDUxMzQyM2Q2MjEzIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602974804000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjkvVnhrZjhXOE13T0JqY3Z2TUZ5VFE9PSIsInZhbHVlIjoiajV5SW12Q3hEd1NOb25Ibnp1b1BTaGhTTzJPZUg2N3l2SElFTjU3eXNJVzEvcXBsL1dJeE5QR3NXbjZ5MTlnQis3dkpQYmI0R1MyU3pTWGkwbGtsNGozaEhZTk9TbEhjR0JTbTZGc042SWJCMkUyUStod2VNajJna2wyT2k5WXkiLCJtYWMiOiJkNDU2NWQ1Y2UzNmFkMTA0ZTNlZWUzODEyYzE4MDU1ODE2NDhkY2JmYjMxOWJhNjQ0ODA1ZjkzNmU0MWJhYjAyIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/18" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="asset modificat" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="category_id" />
+                <option name="value" value="12" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_token" />
+                <option name="value" value="KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_method" />
+                <option name="value" value="DELETE" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602972216000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjFhTTRLMmhMOXVUS09WMEFxZVRWdnc9PSIsInZhbHVlIjoiTHEzdUYxOXoxVzZQRGVpYy9ydkh4SWlxdnN6Q0F1ZlkzU1d3UkFYNkdOWmhvMFFyMmdnT2MwSXdRUHZDUitQSmwvS01uVTBuYlZqWjFwTG5lT3NDUFBIckUzZERrNElmalloS3AxNS9BclFXYlFEM096cjJsRkhSUklkbkpMN2oiLCJtYWMiOiI0YWY5ZjU1NWI2NTkyMzhjMDJjNjVjMTI2YWQyMmIyMjA5M2U5MWZjNmVhZTE4NjkxMjY1MDUxMzQyM2Q2MjEzIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602974496000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImRPN2VHVjJVNGx2Ni8wU2kzYjJpVHc9PSIsInZhbHVlIjoiZHM5cU1iUHRmQ2E4REdMNzVScEVxVTZUc3BWV3RhNnFCOGJXc0FFc2lZTW1pbWlESzdhY0pUcjlhb29RQWlKSWoxNTV1VDB1eS8zSDNBRTN5VDk2cVloRGFaTitoWm82QTRaYjVOL0tJUDhpUWJ2RXBiVWZSVWl5R3ViclVrMGsiLCJtYWMiOiI1ODEyYzhiZjQ0MmU0MzJiODlhMjNmY2YyOWI1NzhiMmFkZGZkZmE1NDVmM2QzYjk5YTNiNmRmY2NjMDcxYjAzIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/15" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="asset modificat" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="category_id" />
+                <option name="value" value="12" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_token" />
+                <option name="value" value="KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_method" />
+                <option name="value" value="PATCH" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602972216000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjFhTTRLMmhMOXVUS09WMEFxZVRWdnc9PSIsInZhbHVlIjoiTHEzdUYxOXoxVzZQRGVpYy9ydkh4SWlxdnN6Q0F1ZlkzU1d3UkFYNkdOWmhvMFFyMmdnT2MwSXdRUHZDUitQSmwvS01uVTBuYlZqWjFwTG5lT3NDUFBIckUzZERrNElmalloS3AxNS9BclFXYlFEM096cjJsRkhSUklkbkpMN2oiLCJtYWMiOiI0YWY5ZjU1NWI2NTkyMzhjMDJjNjVjMTI2YWQyMmIyMjA5M2U5MWZjNmVhZTE4NjkxMjY1MDUxMzQyM2Q2MjEzIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602974475000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImZacWZZSUJQRWdwTlZHTGJOR1VLZnc9PSIsInZhbHVlIjoiajREM3JCQ0x1Z0VTZThMWG43a2JwZ292bFprQ2VObUI5NDl3U09zaHpOYi95QkY0dFdNT1J4Z2JWdUlwQXE4NENLRXQwT0JBVHc2UjFIYS8wcWl6c3ZVRWNaM284MURvemp4L1BDRXhTY0szZk5KM3AwcC9IQTZkRGxWUGdQY04iLCJtYWMiOiI4NjU4OWRhZTQ0YWExZmY0NTQzNzQ5YTkyNDU0YmNmODNjZmIyOTk0Mzg4MGJkMWIwZTQwMmQwMGIxNTg5Y2I2In0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/15" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="asset modificat" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="category_id" />
+                <option name="value" value="12" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_token" />
+                <option name="value" value="KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_method" />
+                <option name="value" value="PATCH" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602972216000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjFhTTRLMmhMOXVUS09WMEFxZVRWdnc9PSIsInZhbHVlIjoiTHEzdUYxOXoxVzZQRGVpYy9ydkh4SWlxdnN6Q0F1ZlkzU1d3UkFYNkdOWmhvMFFyMmdnT2MwSXdRUHZDUitQSmwvS01uVTBuYlZqWjFwTG5lT3NDUFBIckUzZERrNElmalloS3AxNS9BclFXYlFEM096cjJsRkhSUklkbkpMN2oiLCJtYWMiOiI0YWY5ZjU1NWI2NTkyMzhjMDJjNjVjMTI2YWQyMmIyMjA5M2U5MWZjNmVhZTE4NjkxMjY1MDUxMzQyM2Q2MjEzIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602974463000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkcwTmx0NENDMDBGSFl2cmFOQUgrK1E9PSIsInZhbHVlIjoiNkI1RWpkSENSSHd1Y0c2eGUzcmdxV0NWTEFmUnRBSFlpMjBrd0Jac3RwRTJnd3FxbmRXa0hrZ3BSQ2VndTlSSkY1SVEvaEZRTEdCWEYvaEwwYmpOOEtjR2x2RWxyc2FPMkpoeWh1RVc4ZUhZYnpDOVJiUGE3UG9IZW1qc2VCTFAiLCJtYWMiOiI5YzcxYThkMTkxYzI5MDI0ZTVlZjBmMGZmZjlmYjZhMDAzYmQ1NTYyNTM4OTAzYzg3MTYwMmY3ZDY2YTQ3YjA1In0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/15" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="asset modificat" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="category_id" />
+                <option name="value" value="12" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_token" />
+                <option name="value" value="KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_method" />
+                <option name="value" value="PATCH" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602972216000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjFhTTRLMmhMOXVUS09WMEFxZVRWdnc9PSIsInZhbHVlIjoiTHEzdUYxOXoxVzZQRGVpYy9ydkh4SWlxdnN6Q0F1ZlkzU1d3UkFYNkdOWmhvMFFyMmdnT2MwSXdRUHZDUitQSmwvS01uVTBuYlZqWjFwTG5lT3NDUFBIckUzZERrNElmalloS3AxNS9BclFXYlFEM096cjJsRkhSUklkbkpMN2oiLCJtYWMiOiI0YWY5ZjU1NWI2NTkyMzhjMDJjNjVjMTI2YWQyMmIyMjA5M2U5MWZjNmVhZTE4NjkxMjY1MDUxMzQyM2Q2MjEzIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602973823000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkdNMWs3V3M0ZEdFQjF2SlJUWXZyVlE9PSIsInZhbHVlIjoiV3RBZ2tDeTUvWTh4VU1ZUys3ZkJkYUlua0hEejhLSkVPVmowdTN1TEYxc1pEb25IVE9uc05XbEJUekV4SHVWcUNzRmh3VDBub1hjSExwcEVLckdpbCtFb3JHT0s2aW5PQkF0dU5tZEpxYTViSklQcUZLS2oyWTM0KzI4eDhPZDIiLCJtYWMiOiI0YTFmNmMzM2VhZjU0ODVlOWI0NDM5YTI4YzYwNmY1M2RmNDM3NWNjZmFiMjY2NjkyYTA2MTYwMjFmZGMzZDliIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="PATCH" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/15" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="asset modificat" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="category_id" />
+                <option name="value" value="12" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_token" />
+                <option name="value" value="KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_method" />
+                <option name="value" value="PATCH" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602972216000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjFhTTRLMmhMOXVUS09WMEFxZVRWdnc9PSIsInZhbHVlIjoiTHEzdUYxOXoxVzZQRGVpYy9ydkh4SWlxdnN6Q0F1ZlkzU1d3UkFYNkdOWmhvMFFyMmdnT2MwSXdRUHZDUitQSmwvS01uVTBuYlZqWjFwTG5lT3NDUFBIckUzZERrNElmalloS3AxNS9BclFXYlFEM096cjJsRkhSUklkbkpMN2oiLCJtYWMiOiI0YWY5ZjU1NWI2NTkyMzhjMDJjNjVjMTI2YWQyMmIyMjA5M2U5MWZjNmVhZTE4NjkxMjY1MDUxMzQyM2Q2MjEzIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602973823000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkdNMWs3V3M0ZEdFQjF2SlJUWXZyVlE9PSIsInZhbHVlIjoiV3RBZ2tDeTUvWTh4VU1ZUys3ZkJkYUlua0hEejhLSkVPVmowdTN1TEYxc1pEb25IVE9uc05XbEJUekV4SHVWcUNzRmh3VDBub1hjSExwcEVLckdpbCtFb3JHT0s2aW5PQkF0dU5tZEpxYTViSklQcUZLS2oyWTM0KzI4eDhPZDIiLCJtYWMiOiI0YTFmNmMzM2VhZjU0ODVlOWI0NDM5YTI4YzYwNmY1M2RmNDM3NWNjZmFiMjY2NjkyYTA2MTYwMjFmZGMzZDliIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="PATCH" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/15" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="asset modificat" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="category_id" />
+                <option name="value" value="12" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_token" />
+                <option name="value" value="KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_method" />
+                <option name="value" value="PATCH" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602972216000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjFhTTRLMmhMOXVUS09WMEFxZVRWdnc9PSIsInZhbHVlIjoiTHEzdUYxOXoxVzZQRGVpYy9ydkh4SWlxdnN6Q0F1ZlkzU1d3UkFYNkdOWmhvMFFyMmdnT2MwSXdRUHZDUitQSmwvS01uVTBuYlZqWjFwTG5lT3NDUFBIckUzZERrNElmalloS3AxNS9BclFXYlFEM096cjJsRkhSUklkbkpMN2oiLCJtYWMiOiI0YWY5ZjU1NWI2NTkyMzhjMDJjNjVjMTI2YWQyMmIyMjA5M2U5MWZjNmVhZTE4NjkxMjY1MDUxMzQyM2Q2MjEzIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602973689000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImlteGpEMmtxNFBNOTJCdFQySzNIZWc9PSIsInZhbHVlIjoiVFM5bTR1V0RQMHB4Q0ZqWFEwM3Y3aTFrdmFsT0VYL2pOSHR5LzhFWm9mSkI2TjQvM0ZZSzQzWm5sMFBCUE5lZWVvR1pqa051WDRlUjRIWmV3d0t1MTVZM3VGNDZhSGMvOWFkMFZsMkRsNGRHL05xRmphNzhESWZzVmZqaDN1UXYiLCJtYWMiOiI3Yzc1NjIwNTk1ODMwOGM3ZDFmMmM3YmMzYjg3YzBkNzBmZjZkMzY1MjVhMjM0OGM4NDNmM2QyZDE4Mjk4MTdiIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="PATCH" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/15" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="asset modificat" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="category_id" />
+                <option name="value" value="12" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_token" />
+                <option name="value" value="KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_method" />
+                <option name="value" value="PATCH" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602972216000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjFhTTRLMmhMOXVUS09WMEFxZVRWdnc9PSIsInZhbHVlIjoiTHEzdUYxOXoxVzZQRGVpYy9ydkh4SWlxdnN6Q0F1ZlkzU1d3UkFYNkdOWmhvMFFyMmdnT2MwSXdRUHZDUitQSmwvS01uVTBuYlZqWjFwTG5lT3NDUFBIckUzZERrNElmalloS3AxNS9BclFXYlFEM096cjJsRkhSUklkbkpMN2oiLCJtYWMiOiI0YWY5ZjU1NWI2NTkyMzhjMDJjNjVjMTI2YWQyMmIyMjA5M2U5MWZjNmVhZTE4NjkxMjY1MDUxMzQyM2Q2MjEzIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602973571000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkxlTGg5a2tVTHBzMlhUYUtuNEJrUVE9PSIsInZhbHVlIjoiOFVSWVBDUTVENGVrVHl5K1lXZDRHZjBVVzFSSzdNNm0vcUdma2JCQVYrbWM4UVNRLzhNU3ZRRFhHd1N5Q2x2aUJEZ1B0dlVIMFZrR1RDeXA0OTVaZWJNVWtraCswMk9aVjIvVFJsVDE1bkNDT05hbTlJandUNlRKOWczSkRtNy8iLCJtYWMiOiJmOTc1YjY1MjE5NGRjOGI0ZTVmMTJlOTM3ODlhYWJhZWQ4MGU1Mzc1MjAzMjNmMDc0ZThiMjZmODczZjYzZTZhIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="PATCH" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/15" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602972216000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjFhTTRLMmhMOXVUS09WMEFxZVRWdnc9PSIsInZhbHVlIjoiTHEzdUYxOXoxVzZQRGVpYy9ydkh4SWlxdnN6Q0F1ZlkzU1d3UkFYNkdOWmhvMFFyMmdnT2MwSXdRUHZDUitQSmwvS01uVTBuYlZqWjFwTG5lT3NDUFBIckUzZERrNElmalloS3AxNS9BclFXYlFEM096cjJsRkhSUklkbkpMN2oiLCJtYWMiOiI0YWY5ZjU1NWI2NTkyMzhjMDJjNjVjMTI2YWQyMmIyMjA5M2U5MWZjNmVhZTE4NjkxMjY1MDUxMzQyM2Q2MjEzIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602973571000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkxlTGg5a2tVTHBzMlhUYUtuNEJrUVE9PSIsInZhbHVlIjoiOFVSWVBDUTVENGVrVHl5K1lXZDRHZjBVVzFSSzdNNm0vcUdma2JCQVYrbWM4UVNRLzhNU3ZRRFhHd1N5Q2x2aUJEZ1B0dlVIMFZrR1RDeXA0OTVaZWJNVWtraCswMk9aVjIvVFJsVDE1bkNDT05hbTlJandUNlRKOWczSkRtNy8iLCJtYWMiOiJmOTc1YjY1MjE5NGRjOGI0ZTVmMTJlOTM3ODlhYWJhZWQ4MGU1Mzc1MjAzMjNmMDc0ZThiMjZmODczZjYzZTZhIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/15" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602972216000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjFhTTRLMmhMOXVUS09WMEFxZVRWdnc9PSIsInZhbHVlIjoiTHEzdUYxOXoxVzZQRGVpYy9ydkh4SWlxdnN6Q0F1ZlkzU1d3UkFYNkdOWmhvMFFyMmdnT2MwSXdRUHZDUitQSmwvS01uVTBuYlZqWjFwTG5lT3NDUFBIckUzZERrNElmalloS3AxNS9BclFXYlFEM096cjJsRkhSUklkbkpMN2oiLCJtYWMiOiI0YWY5ZjU1NWI2NTkyMzhjMDJjNjVjMTI2YWQyMmIyMjA5M2U5MWZjNmVhZTE4NjkxMjY1MDUxMzQyM2Q2MjEzIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602972216000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjQ4U01BVzhhc0lVL0g0U3RaRDdnL2c9PSIsInZhbHVlIjoiKzJ4THllWEFFd1R2NVF5dlR6MU0zQnVMN2tiQzZDSEVjQXpCOEhDVUsrTnYvM3VxaGhWNUdMZFR2a3F5Nlo3WmREdk05ajFrTGlNcEYybEFsSm40V3YxSGF4UmdDaVZJQTgwdFplS1BwaUdJWmlacmlUMG9BZzZ0QllqR2xtYlIiLCJtYWMiOiI2YzlmZWNkZmFjZjI5MWNiODY0YWJkZGRlODYzMzVlNGUxNzE2MGMwZDAwNTcwNTk2NWZhYjE4ZmEyZGE3ZmY4In0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="PATCH" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/15" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602972165000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IlM5WWM0cytpcE4xSFFybjYrMWlxUVE9PSIsInZhbHVlIjoiR3UrUVkrd1ZNc0l5T09VajRkeVRCeFZzZ2RWSnJNVnB2dmIzSDBla0tzNUNNdVBsWVZOcDI5SEMxQjR2LzRqTUMxcllYYnRTWDA3M05NS2ovaGhiZlh4UlFiU2FWQlZVUDk2ZHdtbmJnVVk5d0syaWxSZlRMY3pJZEdCWG1mcU8iLCJtYWMiOiJiYmM4YTdiODYwOTA2YzcxZDdmN2ViOGEzMjI2MjkyOGUwZTY0MzMxZDFhMDFmNjY1ZDg0ZDYwYjRjMjcyMjNmIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602972165000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IlZ5MVd5MGFJTENNRTk5QnpwQnk1ZFE9PSIsInZhbHVlIjoiL0hRckJWbHhMTWZUOUJaUkRwOURjQjlCdWVIcmMvZ0thbDVmQWpmUGVOYlBWNTVQa0JUS2JuRGdMOHRBUzhiR00yVmk5dm5kc29vbEJDNWFiMWtyVHlpejdybnFuQldHWWhudDNaRXhoZ1NJREh4RkN2MnRGcGJ2NmtVdjVKa2QiLCJtYWMiOiI4NzQ3YTVmYjMxYjdlNjIwYTkxYjFiNjg0NWMwYzJkMGNmNTk3YWYzMjEyN2JkZDVhOTQ5ODJlYWVmZDUwNmE4In0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/15/edit" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602879364000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpnRHIwdHJXSVl5WG9yTWJoWGJmdWc9PSIsInZhbHVlIjoiUWdKVTkwUWVrZ09ZQmQ2VnFWZTNsMWhVc3NkZjRLSjdPN2o2YytSVTdFNUhIZTJ1TEJqMkxKOEoybGpkSU1YWXNwVGdVb3pOWW51VGw2c1hPWEZrZGoxM2NSVFlhWmRMdGRYV2NQQUthM1Q4cVFlK2pZd2kvajBNSzZBTjI5VnIiLCJtYWMiOiIyZjQ0OGZhM2QxN2ZlMmRmZGVjNWU5OWMxMTc4YjI0OTYxYzJmZDQ0MmI5ZmU0NmQ1MWM5MjQ5ZmI3MGYyYjg4In0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602879364000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjdicUp6ek8rWEg2T0lhUSs3bytyYnc9PSIsInZhbHVlIjoiOG1JTHZCdE5GYkZGWFQvS3VSKzJZajJIOU1LeWhNbS9mY2pLc0RUSlgzK1kyTXQrMzQ3bldQQ0pJb1ZsVmc3S0NQc3NjSVE2SDE5SmxWaFo5TGppbUxna2pwR1N0RnZCbjdYWnJxNTJ6MlhSS1E4Vm55RGJyMlMzVHZTQ2pid3YiLCJtYWMiOiI4YTVjOTdiMjQ4MzY0YmEyMmVlZDkyNjllZWQ2ZThlY2FjNDdmNjMzZmZkY2E3YzAxMzY4YWQ5MTUyMzk5OWJjIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/15/edit" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602879364000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpnRHIwdHJXSVl5WG9yTWJoWGJmdWc9PSIsInZhbHVlIjoiUWdKVTkwUWVrZ09ZQmQ2VnFWZTNsMWhVc3NkZjRLSjdPN2o2YytSVTdFNUhIZTJ1TEJqMkxKOEoybGpkSU1YWXNwVGdVb3pOWW51VGw2c1hPWEZrZGoxM2NSVFlhWmRMdGRYV2NQQUthM1Q4cVFlK2pZd2kvajBNSzZBTjI5VnIiLCJtYWMiOiIyZjQ0OGZhM2QxN2ZlMmRmZGVjNWU5OWMxMTc4YjI0OTYxYzJmZDQ0MmI5ZmU0NmQ1MWM5MjQ5ZmI3MGYyYjg4In0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602879364000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjdicUp6ek8rWEg2T0lhUSs3bytyYnc9PSIsInZhbHVlIjoiOG1JTHZCdE5GYkZGWFQvS3VSKzJZajJIOU1LeWhNbS9mY2pLc0RUSlgzK1kyTXQrMzQ3bldQQ0pJb1ZsVmc3S0NQc3NjSVE2SDE5SmxWaFo5TGppbUxna2pwR1N0RnZCbjdYWnJxNTJ6MlhSS1E4Vm55RGJyMlMzVHZTQ2pid3YiLCJtYWMiOiI4YTVjOTdiMjQ4MzY0YmEyMmVlZDkyNjllZWQ2ZThlY2FjNDdmNjMzZmZkY2E3YzAxMzY4YWQ5MTUyMzk5OWJjIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/5" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1602879277000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImRJT2o0bFBSTzduelIvNURMSkNjTGc9PSIsInZhbHVlIjoiSWVGa1FFVDIwZHo3dWJwakZwUGdKSExlMjNPSEVQdTUwcmtBaXZ0djZtaDFLbE9MR05PK2IxQTFKVlhwa25NUmE1Y1BxM0M2enFDUU5yYzNqYWJMaXYxc1JmM3hSelB1TExHakhIU2NicXZDQ2t4eGZmbzg3dGtLSFBnb3paM1kiLCJtYWMiOiI4YzU4M2NlNzM0MjhiMWI4MGVhNjk1M2MxMTlhZTlkZWI2ZWQyNzMzNDdiODY3N2NiMGE5ZmQ1ZWM1NzlkYTNmIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1602879277000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="assets_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpEY0p4OXBaUnRpV0ZJMUJJZ3hWQUE9PSIsInZhbHVlIjoibE8va2hXbytCTmx1TmoxdmZiN0c5a2REZks3MmVZTVpsZHVZakVlQk9hZ2h2VTduZVJodEc4SUJzQWg2TmJ6Zm56KzRoc0xZTnFYRFdaNEEzWC92TnJuUGNYSlJWRm5WSmRtWWZlMlVFZ2kraU9xQmpzOHpnZkpWUmRwWGViOE0iLCJtYWMiOiI1MzQ4MjFjN2JlZDFlOTYxMGU0NjMzY2U3YWRhNGRmNjcxODJkNTY0ZDFiZWY5YWZmZjhhYzNkN2ZjYTRlN2Q5In0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets/2/edit" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/assets" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://httpbin.org/ip" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="PHPUnit.phpunit.xml">
+    <configuration name="All in rest-api_1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http">
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.All in rest-api_1" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -230,7 +847,9 @@
       <workItem from="1602274435381" duration="6912000" />
       <workItem from="1602319597430" duration="1148000" />
       <workItem from="1602435018697" duration="1798000" />
-      <workItem from="1602753222856" duration="13824000" />
+      <workItem from="1602753222856" duration="21410000" />
+      <workItem from="1602831424449" duration="17487000" />
+      <workItem from="1602952096443" duration="14817000" />
     </task>
     <servers />
   </component>
@@ -258,18 +877,42 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1601892421716" />
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602782010112">
+    <state x="536" y="279" key="#com.intellij.ws.actions.HttpClientConvertFromCurlDialog" timestamp="1602871939947">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1602782010112" />
+    <state x="536" y="279" key="#com.intellij.ws.actions.HttpClientConvertFromCurlDialog/0.0.1536.824@0.0.1536.824" timestamp="1602871939947" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602840772779">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1602840772779" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602774038561">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602774038561" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1602880092360">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602880092360" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1602880092360">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602880092360" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1602880092360">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602880092360" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1602880092360">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602880092360" />
     <state x="604" y="336" key="NewPhpFileDialog" timestamp="1601575437327">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1601575437327" />
+    <state x="549" y="217" key="RestClientTextRequest" timestamp="1602966392626">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="217" key="RestClientTextRequest/0.0.1536.824@0.0.1536.824" timestamp="1602966392626" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1602436465727">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

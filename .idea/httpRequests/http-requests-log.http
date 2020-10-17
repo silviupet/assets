@@ -1,0 +1,116 @@
+GET http://127.0.0.1:8000/assets?name=asset modificat&category_id=12&_token=KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4&_method=DELETE
+
+<> 2020-10-17T114754.200.html
+
+###
+
+DELETE http://127.0.0.1:8000/assets/18?name=asset modificat&category_id=12&_token=KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4&_method=DELETE
+
+<> 2020-10-17T114742.419.html
+
+###
+
+POST http://127.0.0.1:8000/assets/18?name=asset modificat&category_id=12&_token=KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4&_method=DELETE
+
+<> 2020-10-17T114716.419.html
+
+###
+
+DELETE http://127.0.0.1:8000/assets/15?name=asset modificat&category_id=12&_token=KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4&_method=PATCH
+
+<> 2020-10-17T114644.419.html
+
+###
+
+DELETE http://127.0.0.1:8000/assets/15?name=asset modificat&category_id=12&_token=KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4&_method=PATCH
+
+<> 2020-10-17T114137.419.html
+
+###
+
+POST http://127.0.0.1:8000/assets/15?name=asset modificat&category_id=12&_token=KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4&_method=PATCH
+
+<> 2020-10-17T114115.419.html
+
+###
+
+PATCH http://127.0.0.1:8000/assets/15?name=asset modificat&category_id=12&_token=KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4&_method=PATCH
+
+<> 2020-10-17T114103.419.html
+
+###
+
+PATCH http://127.0.0.1:8000/assets/15
+name: asset modificat
+category_id: 12
+_token: KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4
+_method: PATCH
+
+<> 2020-10-17T113741.419.html
+
+###
+
+PATCH http://127.0.0.1:8000/assets/15
+name: asset modificat
+category_id: 12
+_token: KVZsiLAL5rWK6Ov71gPy1hWMkPixc83E6nVs7zE4
+_method: PATCH
+
+<> 2020-10-17T113023.419.html
+
+###
+
+PATCH http://127.0.0.1:8000/assets/15
+
+<> 2020-10-17T112809.419.html
+
+###
+
+POST http://127.0.0.1:8000/assets/15
+
+<> 2020-10-17T112755.405.html
+
+###
+
+PATCH http://127.0.0.1:8000/assets/15
+
+<> 2020-10-17T112611.419.html
+
+###
+
+GET http://127.0.0.1:8000/assets/15/edit
+
+<> 2020-10-17T110336.200.html
+
+###
+
+GET http://127.0.0.1:8000/assets/15/edit
+
+<> 2020-10-17T110245.200.html
+
+###
+
+DELETE http://127.0.0.1:8000/assets/5
+
+<> 2020-10-16T092118.419.html
+
+###
+
+GET http://127.0.0.1:8000/assets/2/edit
+
+<> 2020-10-16T091604.200.html
+
+###
+
+GET http://127.0.0.1:8000/assets
+
+<> 2020-10-16T091437.200.html
+
+###
+
+GET http://httpbin.org/ip
+
+<> 2020-10-16T091304.200.json
+
+###
+

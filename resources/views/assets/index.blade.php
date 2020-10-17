@@ -6,7 +6,7 @@
 @endsection
 @include('include.flash_messages')
 @section('content_page')
-    @if('assets')
+    @if(count($assets)>0)
 
         <table style="width:100%">
             <tr>
@@ -15,10 +15,9 @@
                 <th>Created at</th>
                 <th>Updated at</th>
                 <th>Category</th>
-                <th>edit</th>
-
-
             </tr>
+
+
             @foreach($assets as $asset)
             <tr>
 
@@ -27,20 +26,30 @@
                     <td>{{$asset->created_at->diffForhumans()}}</td>
                     <td>{{$asset->updated_at->diffForhumans()}}</td>
                     <td>{{$asset->category->name ??  "no name"}}</td>
-{{--                    <td><a  href ="{{route('assets.edit', $asset->id)}}">edit asset</td>--}}
-                <td>
-                    {!! Form::open(['method'=>'GET', 'action'=>['AssetsController@edit', $asset->id]]) !!}
-                    {!! Form::submit('Edit Assets', ['class'=>'btn btn-primary']) !!}
-                    {!! Form::close() !!}
-                </td>
 
+                    @if(Auth::user()->isAdmin() || Auth::user()->isOwner())
+                     <td>
+                         {!! Form::open(['method'=>'GET', 'action'=>['AssetsController@edit', $asset->id]]) !!}
+                         {!! Form::submit('Edit Assets', ['class'=>'btn btn-primary']) !!}
+                         {!! Form::close() !!}
+                     </td>
 
+                    @elseif(Auth::user()->isEditor() && ($asset->user->id ===Auth::user()->id))
+                    <td>
+                        {!! Form::open(['method'=>'GET', 'action'=>['AssetsController@edit', $asset->id]]) !!}
+                        {!! Form::submit('Edit Assets', ['class'=>'btn btn-primary']) !!}
+                        {!! Form::close() !!}
+
+                    </td>
+                    @endif
 
             </tr>
             @endforeach
         </table>
 
-    @elseif("no assets available")
+    @else
+
+        <h1 class="text-center">No Assets available</h1>
 
     @endif
 @endsection
