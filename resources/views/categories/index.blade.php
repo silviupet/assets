@@ -1,10 +1,16 @@
-@extends('layouts.admin_layout')
+@extends('layouts.user_page')
+@section('meta_titlu')
+    Site de gestionare a activelor proprii
+@endsection
+@section('meta_descriere')
+    Site de gestionare a activelor proprii
+@endsection
 @section('title')
     Categories
 @endsection
 @include('include.flash_messages')
 @section('content_page')
-    <h1>Categories</h1>
+{{--    <h1>Categories</h1>--}}
     <div class="row">
         <div class="col-sm-4">
 
@@ -47,6 +53,7 @@
                 @foreach($categories as $category)
 
                     <tr>
+                        @if(Auth::user()->isAdmin() || Auth::user()->isOwner())
                         <td>{{$category->id}}</td>
                         <td><a href="{{route('categories.edit', $category->id)}}">{{$category->name}}</a></td>
                         <td>{{$category->created_at ? $category->created_at->diffForHumans() : 'no date'}}</td>
@@ -56,8 +63,21 @@
                             {!! Form::submit('Delete Category', ['class'=>'btn btn-danger']) !!}
                             {!! Form::close() !!}
                         </td>
-
-
+                    @elseif(Auth::user()->isEditor() && ($category->user_id === Auth::user()->id) )
+                            <td>{{$category->id}}</td>
+                            <td><a href="{{route('categories.edit', $category->id)}}">{{$category->name}}</a></td>
+                            <td>{{$category->created_at ? $category->created_at->diffForHumans() : 'no date'}}</td>
+                            {{--                        <td><a href ="{{route('categories.destroy', $category->id)}}" style="color:red">delete</a></td>--}}
+                            <td>
+                                {!! Form::open(['method'=>'DELETE', 'action'=>['CategoriesController@destroy', $category->id]]) !!}
+                                {!! Form::submit('Delete Category', ['class'=>'btn btn-danger']) !!}
+                                {!! Form::close() !!}
+                            </td>
+                       @else
+                            <td>{{$category->id}}</td>
+                            <td>{{$category->name}}</td>
+                            <td>{{$category->created_at ? $category->created_at ->diffForHumans():'no date'}}</td>
+                        @endif
                     </tr>
                 @endforeach
 

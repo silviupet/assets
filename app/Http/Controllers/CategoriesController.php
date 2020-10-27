@@ -73,9 +73,42 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-       $categories = Category::all();
-       $cat = Category::findOrFail($id);
-       return view('categories.edit' , compact('categories' , 'cat'));
+        $team_id= Auth::user()->currentTeamId();
+      if(Auth::user()->isAdmin()||Auth::user()->isOwner()){
+            $categories = Category::where('team_id', $team_id)
+                                ->get();
+          $cat = Category::where('id', $id)
+                            ->where('team_id', $team_id)
+                            ->first();
+          if($cat){
+              return view('categories.edit' , compact('categories' , 'cat'));
+          }else{
+              Session::flash('danger_message','nu ai selectat bine administratore');
+              return redirect()->route('categories.index');
+          }
+
+
+      }elseif(Auth::user()->isEditor()){
+          $categories = Category::where('team_id', $team_id)->get();
+          $cat = Category::where('id', $id)
+                            ->where('team_id', $team_id)
+                            ->where('user_id', Auth::user()->id)
+                            ->first();
+
+          if($cat){
+              return view('categories.edit' , compact('categories' , 'cat'));
+          }else{
+              Session::flash('danger_message','nu ai selectat bine editore ');
+              return redirect()->route('categories.index');
+          }
+
+
+      }else{
+          Session::flash('danger_message','nu poti modifica daca nu esti administrator owner sau editor');
+
+          return redirect()->route('categories.index');
+      }
+
     }
 
     /**

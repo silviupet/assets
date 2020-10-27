@@ -28,7 +28,13 @@
 
            @if(Auth::check())
 
+
+
+
+
                 <div class="col-lg-2">
+
+
                     <ul class="list-group">
 
                         <li class="list-group-item">
@@ -58,7 +64,7 @@
                             <a href="#">All trashed posts</a>
                         </li>
 
-{{--                        @if(Auth::user()->admin)--}}
+                        @if(Auth::user()->admin)
                             <li class="list-group-item">
                                 <a href="#">Users</a>
                             </li>
@@ -66,19 +72,19 @@
                                 <a href="#">Create a new user</a>
                             </li>
 
-{{--                        @endif--}}
+                        @endif
 
                         <li class="list-group-item">
                             <a href="#">My profile</a>
                         </li>
 
 
-{{--                        @if(Auth::user()->admin)--}}
+                        @if(Auth::user()->admin)
 
                             <li class="list-group-item">
                                 <a href="#">Blog settings</a>
                             </li>
-{{--                        @endif--}}
+                        @endif
 
                     </ul>
                 </div>

@@ -1,11 +1,17 @@
-@extends('layouts.admin_layout')
+@extends('layouts.user_page')
+@section('meta_titlu')
+    Site de gestionare a activelor proprii
+@endsection
+@section('meta_descriere')
+    Site de gestionare a activelor proprii
+@endsection
 
 @section('title')
     Edit Assets
 @endsection
 @include('include.flash_messages')
 @section('content_page')
-    <h1>Edit an Asset</h1>
+{{--    <h1>Edit an Asset</h1>--}}
 {{--    <div class="row">--}}
 {{--        <div class="col-sm-12">--}}
 

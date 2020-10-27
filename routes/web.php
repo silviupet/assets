@@ -32,3 +32,9 @@ Route::resource('tags', 'TagsController');
 //
 //return (Auth::user()->currentTeam->name);
 //});
+Route::get('/test', function () {
+    return view('test.admin_layout');
+});
+//Route::get('/tema ', function () {
+//    return view('layouts.master_theme');
+//});
