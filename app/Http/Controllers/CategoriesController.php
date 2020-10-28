@@ -45,15 +45,19 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData =$request->validate(['name'=> 'required|max:50']);
-        $validatedData['user_id'] = Auth::user()->id;
-        $validatedData['team_id'] = Auth::user()->currentTeamId();
-        Category::create($validatedData);
-        $request->session()->flash('comment_message','category added ');
+        if (Auth::user()->isAdmin() || Auth::user()->isOwner() || Auth::user()->isEditor()) {
+            $validatedData = $request->validate(['name' => 'required|max:50']);
+            $validatedData['user_id'] = Auth::user()->id;
+            $validatedData['team_id'] = Auth::user()->currentTeamId();
+            Category::create($validatedData);
+            $request->session()->flash('comment_message', 'category added ');
 
-        return redirect()->route('categories.index');
+            return redirect()->route('categories.index');
+        } else {
+            $request->session()->flash('danger_message', 'Nu poti adauga daca nu esti administrator sau owner sau editor ');
+            return redirect()->route('categories.index');
+        }
     }
-
     /**
      * Display the specified resource.
      *
@@ -121,11 +125,43 @@ class CategoriesController extends Controller
     public function update(Request $request, $id)
     {
         $input = $request->validate(['name'=>'required|max:50']);
+        $team_id = Auth::user()->currentTeamId();
 
-           Category::findOrFail($id)->update($input);
+        if(Auth::user()->isAdmin()|| Auth::user()->isOwner()){
+            $category = Category::where('id', $id)
+                                ->where('team_id', $team_id)
+                                ->first();
+            if($category){
+                $category->update($input);
+                $request->session()->flash('comment_message', "category updated");
+                return redirect()->route('categories.index');
+            }else{
+                $request->session()->flash('danger_message', "mai cauta administratore");
+                return redirect()->route('categories.index');
+            }
 
-           $request->session()->flash('comment_message', "category Updated");
-           return redirect()->route('categories.index');
+        }elseif(Auth::user()->isEditor()){
+            $category = Category::where('id', $id)
+                                ->where('team_id', $team_id)
+                                ->where('user_id' , Auth::user()->id)
+                                ->first();
+            if($category){
+                $category->update($input);
+                $request->session()->flash('comment_message', "category updated");
+                return redirect()->route('categories.index');
+            }else{
+                $request->session()->flash('danger_message', "mai cauta editore ");
+                return redirect()->route('categories.index');
+            }
+        }else{
+            $request->session()->flash('danger_message', "trebuie sa fi administrator, owner sau editor se modifici assetul");
+            return redirect()->route('categories.index');
+        }
+
+
+
+
+
 
     }
 
@@ -137,9 +173,39 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
-        $category ->delete();
-        Session::flash('comment_message', "category deleted");
-        return redirect()->route('categories.index');
+        $team_id = Auth::user()->currentTeamId();
+
+        if(Auth::user()->isAdmin()|| Auth::user()->isOwner()){
+            $category = Category::where('id', $id)
+                ->where('team_id', $team_id)
+                ->first();
+            if($category){
+                $category ->delete();
+                Session::flash('comment_message', "category deleted");
+                return redirect()->route('categories.index');
+            }else{
+                Session::flash('danger_message', "mai cauta administratore");
+                return redirect()->route('categories.index');
+            }
+
+        }elseif(Auth::user()->isEditor()){
+            $category = Category::where('id', $id)
+                ->where('team_id', $team_id)
+                ->where('user_id' , Auth::user()->id)
+                ->first();
+            if($category){
+                $category->delete();
+                Session::flash('comment_message', "category deleted");
+                return redirect()->route('categories.index');
+            }else{
+                Session::flash('danger_message', "mai cauta editore ");
+                return redirect()->route('categories.index');
+            }
+        }else{
+            Session::flash('danger_message', "trebuie sa fi administrator, owner sau editor sa etergi assetul");
+            return redirect()->route('categories.index');
+        }
+
+
     }
 }

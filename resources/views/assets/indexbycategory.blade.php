@@ -4,12 +4,12 @@
 @extends('layouts.user_page')
 @section('meta_titlu')
     Site de gestionare a activelor proprii
-    @endsection
+@endsection
 @section('meta_descriere')
     Site de gestionare a activelor proprii
 @endsection
 @section('title')
-    Assets
+    Assets of category: {{$category->name}}
 @endsection
 @include('include.flash_messages')
 @section('content_page')
@@ -27,7 +27,7 @@
 
 
             @foreach($assets as $asset)
-            <tr>
+                <tr>
 
                     <td>{{$asset->id}}</td>
                     <td><a  href="{{route('assets.show', $asset->id)}}">{{$asset->name}}</td>
@@ -36,22 +36,22 @@
                     <td>{{$asset->category->name ??  "no name"}}</td>
 
                     @if(Auth::user()->isAdmin() || Auth::user()->isOwner())
-                     <td>
-                         {!! Form::open(['method'=>'GET', 'action'=>['AssetsController@edit', $asset->id]]) !!}
-                         {!! Form::submit('Edit Assets', ['class'=>'btn btn-primary']) !!}
-                         {!! Form::close() !!}
-                     </td>
+                        <td>
+                            {!! Form::open(['method'=>'GET', 'action'=>['AssetsController@edit', $asset->id]]) !!}
+                            {!! Form::submit('Edit Assets', ['class'=>'btn btn-primary']) !!}
+                            {!! Form::close() !!}
+                        </td>
 
                     @elseif(Auth::user()->isEditor() && ($asset->user->id ===Auth::user()->id))
-                    <td>
-                        {!! Form::open(['method'=>'GET', 'action'=>['AssetsController@edit', $asset->id]]) !!}
-                        {!! Form::submit('Edit Assets', ['class'=>'btn btn-primary']) !!}
-                        {!! Form::close() !!}
+                        <td>
+                            {!! Form::open(['method'=>'GET', 'action'=>['AssetsController@edit', $asset->id]]) !!}
+                            {!! Form::submit('Edit Assets', ['class'=>'btn btn-primary']) !!}
+                            {!! Form::close() !!}
 
-                    </td>
+                        </td>
                     @endif
 
-            </tr>
+                </tr>
             @endforeach
         </table>
 
@@ -62,4 +62,6 @@
     @endif
 @endsection
 @include('include.form_error')
+
+
 

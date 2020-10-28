@@ -14,6 +14,8 @@
     <div class="row">
         <div class="col-sm-4">
 
+
+
             {!! Form::model($t,['method'=>'PATCH', 'action'=> ['TagsController@update', $t->id]]) !!}
             <div class="form-group">
                 {!! Form::label('name', 'Name:') !!}
@@ -24,7 +26,9 @@
                 {!! Form::submit('Update Tag', ['class'=>'btn btn-primary']) !!}
             </div>
             {!! Form::close() !!}
-
+            {!! Form::open(['method'=>'DELETE', 'action'=>['TagsController@destroy', $t->id]]) !!}
+            {!! Form::submit('Delete tag', ['class'=>'btn btn-danger']) !!}
+            {!! Form::close() !!}
 
 
         </div>
@@ -52,19 +56,42 @@
 
                     @foreach($tags as $tag)
 
-                        <tr>
+                        @if(Auth::user()->isAdmin() || Auth::user()->isOwner())
+                            <tr>
+                                <td>{{$tag->id}}</td>
+                                <td><a href="{{route('tags.edit', $tag->id)}}">{{$tag->name}}</a></td>
+                                <td>{{$tag->created_at ? $tag->created_at->diffForHumans() : 'no date'}}</td>
+                                {{--                        <td><a href ="{{route('categories.destroy', $category->id)}}" style="color:red">delete</a></td>--}}
+                                <td>
+                                    {!! Form::open(['method'=>'GET', 'action'=>['TagsController@edit', $tag->id]]) !!}
+                                    {!! Form::submit('Edit Tag', ['class'=>'btn btn-primary']) !!}
+                                    {!! Form::close() !!}
+
+                                </td>
+
+
+                            </tr>
+                        @elseif(Auth::user()->isEditor())
+                            <tr>
+                                <td>{{$tag->id}}</td>
+                                <td><a href="{{route('tags.edit', $tag->id)}}">{{$tag->name}}</a></td>
+                                <td>{{$tag->created_at ? $tag->created_at->diffForHumans() : 'no date'}}</td>
+                                {{--                        <td><a href ="{{route('categories.destroy', $category->id)}}" style="color:red">delete</a></td>--}}
+                                @if($tag->user_id===(Auth::user()->id))
+                                    <td>
+                                        {!! Form::open(['method'=>'GET', 'action'=>['TagsController@edit', $tag->id]]) !!}
+                                        {!! Form::submit('Edit Tag', ['class'=>'btn btn-primary']) !!}
+                                        {!! Form::close() !!}
+
+                                    </td>
+                                @endif
+
+                            </tr>
+                        @else
                             <td>{{$tag->id}}</td>
-                            <td><a href="{{route('tags.edit', $tag->id)}}">{{$tag->name}}</a></td>
+                            <td>{{$tag->name}}</a></td>
                             <td>{{$tag->created_at ? $tag->created_at->diffForHumans() : 'no date'}}</td>
-                            {{--                        <td><a href ="{{route('categories.destroy', $category->id)}}" style="color:red">delete</a></td>--}}
-{{--                            <td>--}}
-{{--                                {!! Form::open(['method'=>'DELETE', 'action'=>['TagsController@destroy', $tag->id]]) !!}--}}
-{{--                                {!! Form::submit('Delete tag', ['class'=>'btn btn-danger']) !!}--}}
-{{--                                {!! Form::close() !!}--}}
-{{--                            </td>--}}
-
-
-                        </tr>
+                        @endif
                     @endforeach
 
                     </tbody>

@@ -24,6 +24,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::resource('assets', 'AssetsController');
 
+Route::get('assets/indexbycategory/{category}', 'AssetsController@indexbycategory')->name('assets.indexbycategory');
+
+
 Route::resource('categories', 'CategoriesController');
 
 Route::resource('tags', 'TagsController');

@@ -81,28 +81,29 @@ class AssetsController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|max:50',
-            'category_id'=>'required'
+        if (Auth::user()->isAdmin() || Auth::user()->isOwner() || Auth::user()->isEditor()) {
+            $validatedData = $request->validate([
+                'name' => 'required|max:50',
+                'category_id' => 'required'
 
-        ]);
-        $user = Auth::user()->id;
-
-
-        $team_id=Auth::user()->currentTeamId();
-        $validatedData['user_id'] = $user;
-        $validatedData['team_id']=$team_id;
+            ]);
+            $user = Auth::user()->id;
 
 
+            $team_id = Auth::user()->currentTeamId();
+            $validatedData['user_id'] = $user;
+            $validatedData['team_id'] = $team_id;
 
 
+            Asset::create($validatedData);
+            $request->session()->flash('comment_message', 'asset uploaded succsesfuly');
 
-       Asset::create($validatedData);
-        $request->session()->flash('comment_message','asset uploaded succsesfuly');
-
-        return redirect()->route('assets.index');
+            return redirect()->route('assets.index');
+        } else {
+            $request->session()->flash('danger_message', 'Nu poti adauga daca nu esti administrator sau owner sau editor ');
+            return redirect()->route('categories.index');
+        }
     }
-
     /**
      * Display the specified resource.
      *
@@ -257,11 +258,27 @@ class AssetsController extends Controller
             Session::flash('danger_message' , 'trebuie sa fi administrator, owner  sau editor sa stergi acest mesaj' );
             return redirect()->route('assets.index');
         }
+    }
+
+    /**
+     * show assets by category.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function indexbycategory($id)
+    {
+
+        $team_id = Auth::user()->currentTeamId();
+        $category = Category::where('id', $id)
+                                ->where('team_id', $team_id)
+                                ->first();
 
 
-
-
-
+        $assets = Asset::where('category_id', $id)
+                        ->where('team_id', $team_id)
+                        ->get();
+       return view('assets.indexbycategory', compact('assets','category'));
 
     }
 }

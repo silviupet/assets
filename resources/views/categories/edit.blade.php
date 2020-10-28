@@ -21,7 +21,13 @@
             </div>
 
             <div class="form-group">
-                {!! Form::submit('Edit Category', ['class'=>'btn btn-primary']) !!}
+                {!! Form::submit('Edit Category', ['class'=>'btn btn-primary col-sm-6']) !!}
+            </div>
+            {!! Form::close() !!}
+            {!! Form::open(['method'=>'DELETE', 'action'=> ['CategoriesController@destroy', $cat->id], 'onsubmit'=>"return confirm('Are you sure you want to delete this item?')"]) !!}
+
+            <div class="form-group">
+                {!! Form::submit('Delete Category', ['class'=>'btn btn-danger col-sm-6']) !!}
             </div>
             {!! Form::close() !!}
 

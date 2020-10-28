@@ -44,7 +44,7 @@
                     <th>id</th>
                     <th>Name</th>
                     <th>Created date</th>
-                    <th>delete</th>
+                    <th>Edit</th>
 
                 </tr>
                 </thead>
@@ -55,25 +55,27 @@
                     <tr>
                         @if(Auth::user()->isAdmin() || Auth::user()->isOwner())
                         <td>{{$category->id}}</td>
-                        <td><a href="{{route('categories.edit', $category->id)}}">{{$category->name}}</a></td>
+                        <td><a href="{{route('assets.indexbycategory', $category->id)}}">{{$category->name}}</a></td>
                         <td>{{$category->created_at ? $category->created_at->diffForHumans() : 'no date'}}</td>
 {{--                        <td><a href ="{{route('categories.destroy', $category->id)}}" style="color:red">delete</a></td>--}}
                         <td>
-                            {!! Form::open(['method'=>'DELETE', 'action'=>['CategoriesController@destroy', $category->id]]) !!}
-                            {!! Form::submit('Delete Category', ['class'=>'btn btn-danger']) !!}
+                            {!! Form::open(['method'=>'GET', 'action'=>['CategoriesController@edit', $category->id]]) !!}
+                            {!! Form::submit('Edit Category', ['class'=>'btn btn-primary']) !!}
                             {!! Form::close() !!}
                         </td>
-                    @elseif(Auth::user()->isEditor() && ($category->user_id === Auth::user()->id) )
+                    @elseif(Auth::user()->isEditor())
                             <td>{{$category->id}}</td>
-                            <td><a href="{{route('categories.edit', $category->id)}}">{{$category->name}}</a></td>
+                            <td><a href="{{route('assets.indexbycategory', $category->id)}}">{{$category->name}}</a></td>
                             <td>{{$category->created_at ? $category->created_at->diffForHumans() : 'no date'}}</td>
                             {{--                        <td><a href ="{{route('categories.destroy', $category->id)}}" style="color:red">delete</a></td>--}}
+                        @if($category->user_id === Auth::user()->id)
                             <td>
-                                {!! Form::open(['method'=>'DELETE', 'action'=>['CategoriesController@destroy', $category->id]]) !!}
-                                {!! Form::submit('Delete Category', ['class'=>'btn btn-danger']) !!}
+                                {!! Form::open(['method'=>'GET', 'action'=>['CategoriesController@edit', $category->id]]) !!}
+                                {!! Form::submit('Edit Category', ['class'=>'btn btn-primary']) !!}
                                 {!! Form::close() !!}
                             </td>
-                       @else
+                        @endif
+                        @else
                             <td>{{$category->id}}</td>
                             <td>{{$category->name}}</td>
                             <td>{{$category->created_at ? $category->created_at ->diffForHumans():'no date'}}</td>
