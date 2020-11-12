@@ -26,7 +26,7 @@
                 {!! Form::submit('Update Tag', ['class'=>'btn btn-primary']) !!}
             </div>
             {!! Form::close() !!}
-            {!! Form::open(['method'=>'DELETE', 'action'=>['TagsController@destroy', $t->id]]) !!}
+            {!! Form::open(['method'=>'DELETE', 'action'=>['TagsController@destroy', $t->id], 'onsubmit'=>"return confirm('Are you sure you want to delete this item?')"]) !!}
             {!! Form::submit('Delete tag', ['class'=>'btn btn-danger']) !!}
             {!! Form::close() !!}
 
@@ -96,7 +96,8 @@
 
                     </tbody>
                 </table>
-
+            @else
+                <h2>no tags found for this team</h2>
             @endif
 
 

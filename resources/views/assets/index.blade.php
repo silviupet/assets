@@ -30,14 +30,14 @@
             <tr>
 
                     <td>{{$asset->id}}</td>
-                    <td><a  href="{{route('assets.show', $asset->id)}}">{{$asset->name}}</td>
+                    <td><a  href="{{route('assets.show', $asset->slug)}}">{{$asset->name}}</td>
                     <td>{{$asset->created_at->diffForhumans()}}</td>
                     <td>{{$asset->updated_at->diffForhumans()}}</td>
                     <td>{{$asset->category->name ??  "no name"}}</td>
 
                     @if(Auth::user()->isAdmin() || Auth::user()->isOwner())
                      <td>
-                         {!! Form::open(['method'=>'GET', 'action'=>['AssetsController@edit', $asset->id]]) !!}
+                         {!! Form::open(['method'=>'GET', 'action'=>['AssetsController@edit', $asset->slug]]) !!}
                          {!! Form::submit('Edit Assets', ['class'=>'btn btn-primary']) !!}
                          {!! Form::close() !!}
                      </td>

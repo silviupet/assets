@@ -30,6 +30,8 @@ Route::get('assets/indexbycategory/{category}', 'AssetsController@indexbycategor
 Route::resource('categories', 'CategoriesController');
 
 Route::resource('tags', 'TagsController');
+Route::resource('atributes', 'AtributesController');
+
 
 //Route::get('/currentTeamName' , function(){
 //

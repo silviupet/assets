@@ -20,17 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efb7933a-837b-4c15-bcf4-366d44b0cfc2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/assets/indexbycategory.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/atributes/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assets.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assets.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AssetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AssetsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TagsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TagsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/assets/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Asset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/assets/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categories/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categories/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/tags/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tags/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tags/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tags/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,6 +178,11 @@
       <path value="$PROJECT_DIR$/vendor/laravel/sanctum" />
       <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
       <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
+      <path value="$PROJECT_DIR$/vendor/cviebrock/eloquent-sluggable" />
+      <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
     </include_path>
   </component>
   <component name="ProjectId" id="1hy07bUK65UAsruuB3AuXcWpqyR" />
@@ -189,7 +194,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -857,7 +862,11 @@
       <workItem from="1603398203632" duration="748000" />
       <workItem from="1603460191621" duration="20787000" />
       <workItem from="1603786919142" duration="16505000" />
-      <workItem from="1603885174447" duration="14188000" />
+      <workItem from="1603885174447" duration="15344000" />
+      <workItem from="1604838849214" duration="290000" />
+      <workItem from="1604924829697" duration="9232000" />
+      <workItem from="1605027825234" duration="1122000" />
+      <workItem from="1605201968143" duration="7145000" />
     </task>
     <servers />
   </component>

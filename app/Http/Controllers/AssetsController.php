@@ -121,11 +121,11 @@ class AssetsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
         if (Auth::user()->isAdmin() || Auth::user()->isOwner()) {
             $team_id = Auth::user()->currentTeamId();
-            $asset = Asset::where('id', $id)
+            $asset = Asset::where('slug', $slug)
                            ->where('team_id' , $team_id )->first();
 
                         if($asset) {
@@ -139,7 +139,7 @@ class AssetsController extends Controller
                                 }
         } elseif(Auth::user()->isEditor()){
             $team_id = Auth::user()->currentTeamId();
-            $asset = Asset::where('id', $id)
+            $asset = Asset::where('slug', $slug)
                 ->where('user_id' , Auth::user()->id )
                         ->where('team_id' , $team_id )->first();
                          if($asset) {
