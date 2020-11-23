@@ -42,9 +42,9 @@
                          {!! Form::close() !!}
                      </td>
 
-                    @elseif(Auth::user()->isEditor() && ($asset->user->id ===Auth::user()->id))
+                    @elseif(Auth::user()->isEditor() && ($asset->user_id ===Auth::user()->id))
                     <td>
-                        {!! Form::open(['method'=>'GET', 'action'=>['AssetsController@edit', $asset->id]]) !!}
+                        {!! Form::open(['method'=>'GET', 'action'=>['AssetsController@edit', $asset->slug]]) !!}
                         {!! Form::submit('Edit Assets', ['class'=>'btn btn-primary']) !!}
                         {!! Form::close() !!}
 

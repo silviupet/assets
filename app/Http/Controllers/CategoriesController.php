@@ -46,7 +46,7 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         if (Auth::user()->isAdmin() || Auth::user()->isOwner() || Auth::user()->isEditor()) {
-            $validatedData = $request->validate(['name' => 'required|max:50']);
+            $validatedData = $request->validate(['name' => 'required|max:50|regex:/^[a-zA-Z0-9\s]+$/']);
             $validatedData['user_id'] = Auth::user()->id;
             $validatedData['team_id'] = Auth::user()->currentTeamId();
             Category::create($validatedData);
@@ -124,7 +124,7 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $input = $request->validate(['name'=>'required|max:50']);
+        $input = $request->validate(['name'=>'required|max:50|regex:/^[a-zA-Z0-9\s]+$/']);
         $team_id = Auth::user()->currentTeamId();
 
         if(Auth::user()->isAdmin()|| Auth::user()->isOwner()){

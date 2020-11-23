@@ -1,3 +1,4 @@
+
 @extends('layouts.user_page')
 @section('meta_titlu')
     Site de gestionare a activelor proprii
@@ -13,10 +14,12 @@
 @section('content_page')
     <h1>Create an Asset</h1>
     <div class="row">
-{!!Form::open(['method'=>'POST', 'action'=> 'AssetsController@store', 'files' => true])!!}
-        <div class="form-group">
-            {!! Form::label('name', 'Name:') !!}
-            {!! Form::text('name', null, ['class'=>'form-control'])!!}
+        {!!Form::open(['method'=>'POST', 'action'=> 'AssetsController@store', 'files' => true])!!}
+        {!! Form::token() !!}
+            <div class="form-group">
+                {!! Form::label('name', 'Name:') !!}
+                {!! Form::text('name', null, ['class'=>'form-control'])!!}
+            </div>
 
             <div class="form-group">
                 {!! Form::label('category_id', 'Category:') !!}
@@ -26,10 +29,9 @@
             <div class="form-group">
                 {!! Form::submit('Create Asset', ['class'=>'btn btn-primary']) !!}
             </div>
+        {!!Form::close()!!}
 
-            {!!Form::close()!!}
-
-        </div>
+    </div>
 
 
 

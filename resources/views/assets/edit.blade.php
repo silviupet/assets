@@ -18,7 +18,7 @@
 
 
             {!!Form::model($asset, ['method'=>'PATCH', 'action'=> ['AssetsController@update', $asset->id],'files' => true])!!}
-
+            {!! Form::token() !!}
                 <div class="form-group">
                     {!! Form::label('name', 'Name:') !!}
                     {!! Form::text('name', null, ['class'=>'form-control'])!!}
@@ -37,7 +37,7 @@
 
             {!!Form::close()!!}
             {!! Form::open(['method'=>'DELETE', 'action'=> ['AssetsController@destroy', $asset->id],'onsubmit'=>"return confirm('Are you sure you want to delete this item?')"]) !!}
-
+                {!! Form::token() !!}
             <div class="form-group">
                 {!! Form::submit('Delete Asset', ['class'=>'btn btn-danger col-sm-6']) !!}
             </div>

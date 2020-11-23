@@ -83,7 +83,7 @@ class AssetsController extends Controller
     {
         if (Auth::user()->isAdmin() || Auth::user()->isOwner() || Auth::user()->isEditor()) {
             $validatedData = $request->validate([
-                'name' => 'required|max:50',
+                'name' => 'required|max:50|regex:/^[a-zA-Z0-9\s]+$/',
                 'category_id' => 'required'
 
             ]);
@@ -101,7 +101,7 @@ class AssetsController extends Controller
             return redirect()->route('assets.index');
         } else {
             $request->session()->flash('danger_message', 'Nu poti adauga daca nu esti administrator sau owner sau editor ');
-            return redirect()->route('categories.index');
+            return redirect()->route('assets.index');
         }
     }
     /**
@@ -178,7 +178,7 @@ class AssetsController extends Controller
     if (Auth::user()->isAdmin() || Auth::user()->isOwner()) {
 
         $input = $request->validate([
-            'name' => 'required|max:50',
+            'name' => 'required|max:50|regex:/^[a-zA-Z0-9\s]+$/',
             'category_id' => 'required'
         ]);
         $team_id = Auth::user()->currentTeamId();
@@ -197,7 +197,7 @@ class AssetsController extends Controller
 
     } elseif(Auth::user()->isEditor()){
         $input = $request->validate([
-            'name'=>'required|max:50',
+            'name'=>'required|max:50|regex:/^[a-zA-Z0-9\s]+$/',
             'category_id'=>'required'
         ]);
         $asset = Asset::where('id', $id)

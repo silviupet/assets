@@ -10,7 +10,7 @@
 @endsection
 @include('include.flash_messages')
 @section('content_page')
-    @if(count($atributes)==0)
+    @if(count($atributes)>0)
        <table style="width: 100%", class="table">
             <tr>
                 <th>Name</th>
@@ -28,8 +28,11 @@
             </tr>
             @foreach($atributes as $atribute)
                <tr>
-                   <td>{{$atribute->name}}</td>
-                   <td><a  href="{{route('assets.show', $atribute->asset->slug)}}">{{$asset->name}}</td>
+                   <td><a href="{{route('atributes.show', $atribute->name)}}">{{$atribute->name}}</td>
+{{--                   @foreach($atribute->assets as $asset)--}}
+{{--                   <td><a  href="{{route('assets.show', $asset->slug)}}">{{$asset->name}}</td>--}}
+{{--                   @endforeach--}}
+                   <td>belong to asset</td>
                    <td>{{$atribute->description}}</td>
                    <td>{{$atribute->from_date}}</td>
                    <td>{{$atribute->expiry_date}}</td>
@@ -37,17 +40,18 @@
                    <td>{{$atribute->currency}}</td>
                    <td>{{$atribute->vendor}}</td>
                    <td>{{$atribute->other_conditions}}</td>
-                   @if(Auth::user()->isAdmin || Auth::user()->isOwner())
+                   <td>tag name</td>
+                   @if(Auth::user()->isAdmin() || Auth::user()->isOwner())
                     <td>
                         {!! Form::open(['method'=>'GET', 'action'=>['AtributesController@edit', $atribute->id ]]) !!}
-                        {!! Form::submit('Edit Atribute',[ 'class'=>'btn, btn-primary']) !!}
+                        {!! Form::submit('Edit Atribute',[ 'class'=>'btn btn-primary']) !!}
                         {!! Form::close() !!}
                     </td>
                    @elseif(Auth::user()->isEditor() && $atribute->user_id ==(Auth::user()->id))
 
                            <td>
                                {!! Form::open(['method'=>'GET', 'action'=>['AtributesController@edit', $atribute->id]]) !!}
-                               {!! Form::submit('Edit Atribute', ['class'=>'btn, btn-primary']) !!}
+                               {!! Form::submit('Edit Atribute', ['class'=>'btn btn-primary']) !!}
                                {!! Form::close() !!}
                            </td>
 

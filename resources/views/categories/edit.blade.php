@@ -15,6 +15,7 @@
         <div class="col-sm-4">
 
             {!! Form::model($cat, ['method'=>'PATCH', 'action'=> ['CategoriesController@update', $cat->id]]) !!}
+            {!! Form::token() !!}
             <div class="form-group">
                 {!! Form::label('name', 'Name:') !!}
                 {!! Form::text('name', null, ['class'=>'form-control'])!!}
