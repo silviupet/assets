@@ -33,8 +33,11 @@
                     <td><a  href="{{route('assets.show', $asset->slug)}}">{{$asset->name}}</td>
                     <td>{{$asset->created_at->diffForhumans()}}</td>
                     <td>{{$asset->updated_at->diffForhumans()}}</td>
-                    <td>{{$asset->category->name ??  "no name"}}</td>
-
+                    @if($asset->category_id)
+                    <td><a  href="{{route('assets.indexbycategory', $asset->category_id)}}">{{$asset->category->name}}</td>
+                    @else
+                    <td>{{$asset->category->name ??  "no category"}}</td>
+                    @endif
                     @if(Auth::user()->isAdmin() || Auth::user()->isOwner())
                      <td>
                          {!! Form::open(['method'=>'GET', 'action'=>['AssetsController@edit', $asset->slug]]) !!}
@@ -50,6 +53,12 @@
 
                     </td>
                     @endif
+                <td>
+                    {!! Form::open(['method'=>'GET', 'action'=>['AtributesController@createAtributeOfAnAsset',$asset->id]]) !!}
+                    {!! Form::submit('Add an Atribute to this Asset', ['class'=>'btn btn-primary']) !!}
+                    {!! Form::close() !!}
+
+                </td>
 
             </tr>
             @endforeach

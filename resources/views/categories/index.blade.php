@@ -15,6 +15,7 @@
         <div class="col-sm-4">
 
             {!! Form::open(['method'=>'POST', 'action'=> 'CategoriesController@store']) !!}
+            {!! Form::token() !!}
                  <div class="form-group">
                 {!! Form::label('name', 'Name:') !!}
                 {!! Form::text('name', null, ['class'=>'form-control'])!!}

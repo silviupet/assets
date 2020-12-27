@@ -20,23 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efb7933a-837b-4c15-bcf4-366d44b0cfc2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/atributes/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/atributes/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/assets/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/documents/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AssetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AssetsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AtributesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AtributesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TagsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TagsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Asset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Atribute.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Atribute.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Document.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Document.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_05_202917_create__asset_atribute_pivot_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_05_202917_create__asset_atribute_pivot_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/assets/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/assets/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/assets/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/atributes/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/atributes/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/atributes/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/atributes/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/atributes/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/atributes/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categories/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categories/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/user_page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/user_page.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/_left_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/_left_sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -207,14 +209,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\assets\storage\app\public" />
+      <recent name="C:\xampp\htdocs\assets\resources\views\components" />
+      <recent name="C:\xampp\htdocs\assets\public" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\assets\resources\views" />
       <recent name="C:\xampp\htdocs\assets\resources\css" />
       <recent name="C:\xampp\htdocs\assets\public\css" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\assets\resources\views\components" />
-      <recent name="C:\xampp\htdocs\assets\public" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -887,6 +890,23 @@
       <workItem from="1605888221904" duration="20779000" />
       <workItem from="1606064065122" duration="12873000" />
       <workItem from="1606141730208" duration="2417000" />
+      <workItem from="1606146148795" duration="4077000" />
+      <workItem from="1606151315425" duration="19128000" />
+      <workItem from="1606387010032" duration="23028000" />
+      <workItem from="1606471356166" duration="19678000" />
+      <workItem from="1606666045360" duration="10522000" />
+      <workItem from="1606737677984" duration="14946000" />
+      <workItem from="1606846671138" duration="26466000" />
+      <workItem from="1607019419015" duration="8105000" />
+      <workItem from="1607349075507" duration="10152000" />
+      <workItem from="1607415688138" duration="23513000" />
+      <workItem from="1607511355542" duration="7198000" />
+      <workItem from="1607975265131" duration="4388000" />
+      <workItem from="1608649942123" duration="12001000" />
+      <workItem from="1608823965116" duration="2586000" />
+      <workItem from="1608826814797" duration="4936000" />
+      <workItem from="1608834949553" duration="13000000" />
+      <workItem from="1609084496561" duration="11216000" />
     </task>
     <servers />
   </component>
@@ -910,6 +930,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="512" y="236" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1602436372672" />
+    <state x="524" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608843850017">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="524" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1608843850017" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601892421716">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -918,14 +942,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="536" y="279" key="#com.intellij.ws.actions.HttpClientConvertFromCurlDialog/0.0.1536.824@0.0.1536.824" timestamp="1602871939947" />
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603920847868">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607514757055">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1603920847868" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1605894926708">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1607514757055" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1608823996071">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605894926708" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1608823996071" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1602880092360">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -958,9 +982,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1605555519367" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605871091902">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1606913973844">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1605871091902" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1606913973844" />
   </component>
 </project>

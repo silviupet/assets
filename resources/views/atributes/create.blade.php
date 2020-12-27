@@ -10,20 +10,21 @@
 @endsection
 @include('include.flash_messages')
 @section('content_page')
-    {!! Form::open(['method'=>'POST', 'action'=>'AtributesController@store', 'files'=>true]) !!}
+    {!! Form::open(['method'=>'POST', 'action'=>['AtributesController@store'], 'files'=>true]) !!}
     {!! Form::token() !!}
 <div class="container-fluid">
     <div class="row">
 
         <div class="col-6">
 
+            <input type="hidden", name = "asset_id", value="{{$id}}">
 
-
-
-            <div class="form-group">
-                {!!Form::label('asset_id', 'Asset that Atribute belongs to:')!!}
-                {!!Form::select('asset_id', [''=>'Choose Asset ..'] + $assets, null , ['class'=>'form-control'])!!}
-            </div>
+{{--            @if(Route::currentRouteName() === "atributes.create")--}}
+{{--            <div class="form-group">--}}
+{{--                {!!Form::label('asset_id', 'Asset that Atribute belongs to:')!!}--}}
+{{--                {!!Form::select('asset_id',   [''=>'chose tags...']+ $assets ,null,  ['class'=>'form-control'])!!}--}}
+{{--            </div>--}}
+{{--            @endif--}}
             <div class="form-group">
                 {!!Form::label('name', 'Atribute name: ')!!}
                 {!!FORM::text('name' , null, ['class'=>'form-control'])!!}
@@ -84,6 +85,7 @@
             <div class="form-group">
                 {!! Form::submit('Create an Atribute', ['class'=>'btn btn-primary col-12 ']) !!}
             </div>
+
         </div>
 
         {!! Form::close() !!}

@@ -17,15 +17,15 @@ class Atribute extends Model
                             'price',
                             'currency',
                             'vendor',
-                            'other_condition',
+                            'other_conditions',
                             'document_id',
                             'user_id',
                             'team_id'
                             ];
 
-     public function assets()
+     public function asset()
      {
-         return $this->belongsToMany('App\Models\Asset');
+         return $this->belongsTo('App\Models\Asset');
      }
 
      public function documents()
@@ -37,4 +37,9 @@ class Atribute extends Model
      {
          return $this->belongsToMany('App\Models\Tag');
      }
+
+
+
+
+
 }

@@ -7,7 +7,7 @@
                  @include('partials._left_sidebar')
                 </div>
                 <div class="col-10">
-                    <div class="content" style="padding-left: 100px; padding-top:30px" >
+                    <div class="content" style="padding-left: 30px; padding-top:30px" >
 
                     @yield('content_page')
                     </div>

@@ -28,10 +28,10 @@ class Asset extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
-//    many to many un assets are mai multe atrinute si invers
+//    one to many un assets are mai multe atrinute
     public function atributes()
     {
-        return $this->belongsToMany('App\Models\Atribute');
+        return $this->hasMany('App\Models\Atribute');
     }
 //    one to many intr-o categorie sunt mai multe asseturi
     public function category()
@@ -52,6 +52,20 @@ class Asset extends Model
                 'onUpdate' =>true
             ]
         ];
+    }
+
+
+    public static function boot ()
+    {
+        parent::boot();
+
+        self::deleting(function (Asset $event) {
+
+            foreach ($event->atributes as $atribute)
+            {
+                $atribute->delete();
+            }
+        });
     }
 
 }

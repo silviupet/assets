@@ -34,7 +34,12 @@ Route::resource('categories', 'CategoriesController');
 
 Route::resource('tags', 'TagsController');
 Route::resource('atributes', 'AtributesController');
-
+Route::get('{asset}/atributes/create' , 'AtributesController@createAtributeOfAnAsset')->name('atributes.createAtributeOfAnAsset');
+Route::resource('documents', 'DocumentsController');
+//Route::PATCH('documents/{documents}' , 'DocumentsController@update')->name('documents.update');
+//Route::DELETE('documents/{documents}' , 'DocumentsController@destroy')->name('documents.destroy');
+Route::POST('{atribute}/documents' , 'DocumentsController@storeDocumentOfAnAtribute')->name('documents.storeDocumentOfAnAtribute');
+//Route::POST('{asset}/atributes/store' , 'AtributesController@storeAtributeOfAnAsset')->name('atributes.storeAtributeOfAnAsset');
 
 //Route::get('/currentTeamName' , function(){
 //

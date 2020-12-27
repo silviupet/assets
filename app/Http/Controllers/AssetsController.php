@@ -8,7 +8,9 @@ use App\Models\Asset;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
-
+use App\Models\Atribute;
+use App\Models\Document;
+use App\Models\Tag;
 
 
 
@@ -84,7 +86,7 @@ class AssetsController extends Controller
         if (Auth::user()->isAdmin() || Auth::user()->isOwner() || Auth::user()->isEditor()) {
             $validatedData = $request->validate([
                 'name' => 'required|max:50|regex:/^[a-zA-Z0-9\s]+$/',
-                'category_id' => 'required'
+                'category_id' => 'nullable'
 
             ]);
             $user = Auth::user()->id;
@@ -95,10 +97,12 @@ class AssetsController extends Controller
             $validatedData['team_id'] = $team_id;
 
 
-            Asset::create($validatedData);
+            $asset= Asset::create($validatedData);
+
+
             $request->session()->flash('comment_message', 'asset uploaded succsesfuly');
 
-            return redirect()->route('assets.index');
+            return redirect()->route('assets.index' );
         } else {
             $request->session()->flash('danger_message', 'Nu poti adauga daca nu esti administrator sau owner sau editor ');
             return redirect()->route('assets.index');
@@ -110,9 +114,38 @@ class AssetsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
+        $team_id = Auth::user()->currentTeamId();
 
+        $asset = Asset::where('slug', $slug)
+                        ->where('team_id',$team_id)
+                        ->first();
+        $atributes = Atribute::where('asset_id', $asset->id)
+                                ->where('team_id',$team_id)
+                                ->get();
+        $users = User::all();
+/*
+ * documentele unui activ
+ */
+//        obtinere id la colectia de atribute ale activului ($slug)
+        foreach($asset->atributes as $atribute){
+            $id_atributes_asset []= $atribute->id;
+        }
+
+//        $documents = Document::whereIn('atribute_id', $id_atributes_asset)
+//                                ->where('team_id', $team_id)
+//                                ->get();
+/*
+ * tagurile unui activ adica a tuturor atributelor unui activ
+ */
+        $tags = Tag::where('team_id', $team_id)->get();
+
+
+
+
+
+        return view('assets.show', compact('asset','atributes','tags', 'users'));
     }
 
     /**
@@ -175,13 +208,15 @@ class AssetsController extends Controller
      */
     public function update(Request $request, $id)
 {
+    $team_id = Auth::user()->currentTeamId();
     if (Auth::user()->isAdmin() || Auth::user()->isOwner()) {
 
         $input = $request->validate([
             'name' => 'required|max:50|regex:/^[a-zA-Z0-9\s]+$/',
-            'category_id' => 'required'
+           'category_id' => 'nullable'
         ]);
-        $team_id = Auth::user()->currentTeamId();
+
+
         $asset = Asset::where('id', $id)
                 ->where ('team_id' , $team_id)
                 ->first();
@@ -198,10 +233,11 @@ class AssetsController extends Controller
     } elseif(Auth::user()->isEditor()){
         $input = $request->validate([
             'name'=>'required|max:50|regex:/^[a-zA-Z0-9\s]+$/',
-            'category_id'=>'required'
+            'category_id'=>'nullable'
         ]);
         $asset = Asset::where('id', $id)
                         ->where('user_id', Auth::user()->id)
+                        ->where('team_id', $team_id)
                         ->first();
             if($asset){
                 $asset->update($input);
