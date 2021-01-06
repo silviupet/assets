@@ -62,8 +62,10 @@
 
             </tr>
             @endforeach
-        </table>
 
+
+        </table>
+        {{$assets->render()}}
     @else
 
         <h1 class="text-center">No Assets available</h1>

@@ -106,7 +106,7 @@
                     @foreach($atributes as $atribute)
 
                         <tr>
-                            <td><a href="{{route('atributes.show', $atribute->name)}}">{{$atribute->name}}</td>
+                            <td><a href="{{route('atributes.show', $atribute->id)}}">{{$atribute->name}}</td>
 
 {{--                            <td><a  href="{{route('assets.show', $atribute->asset->slug?? "salut")}}">{{$atribute->asset->name?? "asset deleted"}}</td>--}}
 
@@ -174,15 +174,10 @@
 
                Atribute : {{$atribute->name}}
 
-
-
-
-
-
                @if(count($atribute->documents)>0)
                <table style="width: 100%", class="table">
                                    <tr>
-{{--                                       <th>Document </th>--}}
+
                                        <th>Document Name</th>
                                        <th>Upload by</th>
                                        <th>Edit</th>
@@ -201,7 +196,7 @@
                           <td>{{$document->name}}</td>
 {{--                           <td>{{$document->atribute->asset->user->name}}</td>--}}
 
-                           <td>{{$users->find($document->user_id)->name}}</td>ph
+                           <td>{{$users->find($document->user_id)->name}}</td>
 
                            <!-- Edit button-->
 
@@ -394,86 +389,7 @@
 
     </div>
 </div>
-{{--    <div class="collapse" id="collapseExample1">--}}
-{{--        <div class="card card-body">--}}
-{{--            <h5>Documents of asset: {{$asset->name}}</h5>--}}
 
-
-
-{{--            @if(count($documents)>0)--}}
-
-{{--                <table style="width: 100%", class="table">--}}
-{{--                    <tr>--}}
-{{--                        <th>Document Name</th>--}}
-{{--                        <th>Belong to atribute</th>--}}
-
-{{--                        <th>Upload by</th>--}}
-
-
-{{--                        <th>edit</th>--}}
-
-{{--                    </tr>--}}
-
-
-{{--                    @foreach($asset->atributes as $atribute)--}}
-
-
-
-{{--                @foreach ($atribute->documents as $document)--}}
-{{--                            <h4>documents of atribute: {{$atribute->name}}</h4>--}}
-{{--                        <tr>--}}
-{{--                            <td><a href="{{route('document.show', $atribute->name)}}">{{$atribute->name}}</td>--}}
-
-{{--                            <td>{{$document->name}}</td>--}}
-
-
-
-{{--                                            <td><a  href="{{route('assets.show', $atribute->asset->slug?? "salut")}}">{{$atribute->asset->name?? "asset deleted"}}</td>--}}
-
-
-{{--                            <td><a href="{{route('atributes.show', $document->atribute->name)}}">{{$document->atribute->name}}</td>--}}
-
-{{--                            <td>{{$document->atribute->asset->user->name}}</td>--}}
-
-{{--                            @if(Auth::user()->isAdmin() || Auth::user()->isOwner())--}}
-{{--                                <td>--}}
-{{--                                    {!! Form::open(['method'=>'GET', 'action'=>['AtributesController@edit', $atribute->id ]]) !!}--}}
-{{--                                    {!! Form::submit('Edit Document',[ 'class'=>'btn btn-primary']) !!}--}}
-{{--                                    {!! Form::close() !!}--}}
-{{--                                </td>--}}
-{{--                            @elseif(Auth::user()->isEditor() && $atribute->user_id ==(Auth::user()->id))--}}
-
-{{--                                <td>--}}
-{{--                                    {!! Form::open(['method'=>'GET', 'action'=>['AtributesController@edit', $atribute->id]]) !!}--}}
-{{--                                    {!! Form::submit('Edit Atribute', ['class'=>'btn btn-primary']) !!}--}}
-{{--                                    {!! Form::close() !!}--}}
-{{--                                </td>--}}
-
-{{--                            @endif--}}
-
-{{--                        </tr>--}}
-
-
-{{--                                    @endif--}}
-
-{{--                   @endforeach--}}
-{{--                    @endforeach--}}
-
-
-
-{{--                </table>--}}
-
-
-
-
-{{--            @else--}}
-
-{{--                <h1 class="text-center">No documents available</h1>--}}
-
-{{--            @endif--}}
-
-{{--        </div>--}}
-{{--    </div>--}}
 <!-- Colapse tags-->
     <div class="collapse" id="collapseExample2">
         <div class="card card-body">
@@ -481,11 +397,11 @@
                  @if(count($tags)>0)
                      @foreach ($asset->atributes as $key => $atribute)
 
-                         Atribute: {{$atribute->name}}
+                         Tags of atribute: {{$atribute->name}}
                             <p>
                      @foreach ($atribute->tags  as $tag)
-                               <button type="button" class="btn btn-outline-primary">{{$tag->name}}</button>
-
+{{--                               <button type="button" class="btn btn-outline-primary">{{$tag->name}}</button>--}}
+                                    <a href="{{route('atributes.indexbytag' ,  $tag->id )}}" class="btn btn-outline-primary" role="button" aria-pressed="true">{{$tag->name}}</a>
                      @endforeach
 
 
@@ -508,8 +424,9 @@
                         <div class="card card-body">
                             <p>
                                 @foreach ($diff as $tag)
+                                    <a href="{{route('atribute.addTag' , [$atribute->id, $tag->id ])}}" class="btn btn-outline-primary" role="button" aria-pressed="true">{{$tag->name}}</a>
 
-                                    <button type="button" class="btn btn-outline-primary">{{$tag->name}}</button>
+
                                 @endforeach
                             </p>
                         </div>
@@ -524,7 +441,8 @@
                            <p>
 
                                @foreach ($atribute->tags as $tag)
-                                   <button type="button" class="btn btn-outline-primary">{{$tag->name}}</button>
+                                   <a href="{{route('atribute.deleteTag' , [$atribute->id, $tag->id ])}}" class="btn btn-outline-primary" role="button" aria-pressed="true">{{$tag->name}}</a>
+
                                @endforeach
 
                            </p>

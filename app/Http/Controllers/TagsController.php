@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Atribute;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Tag;
@@ -204,5 +205,89 @@ class TagsController extends Controller
 
 
     }
+    /**
+     * Add tag to an atribute.
+     *
+     * @param  int  $tag_id
+     * @param int $atribute_id
+     * @return \Illuminate\Http\Response
+     */
+    public function addTag(int $atribute_id , int $tag_id)
+    {
+        $team_id = Auth::user()->currentTeamId();
+        $atribute = Atribute::where('id', $atribute_id)
+                            ->where('team_id', $team_id)
+                            ->first();
+        $tag = Tag::where('id', $tag_id)
+                    ->where('team_id', $team_id)
+                    ->first();
+        if($atribute){
+            if($tag){
 
+
+                    $atribute->tags()->attach($tag_id);
+                    Session::flash('comment_message', 'Tag adaugat ');
+                    return redirect()->back();
+
+            }else{
+                Session::flash('danger_message', 'tagul respectiv nu exista');
+                return redirect()->back();
+
+            }
+
+
+        }else{
+            Session::flash('danger_message', 'atributul respectiv nu exista');
+            return redirect()->back();
+
+        }
+
+
+
+    }
+
+    /**
+     * deletae atag of  an atribute.
+     *
+     * @param  int  $tag_id
+     * @param int $atribute_id
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteTag(int $atribute_id , int $tag_id)
+    {
+
+        $team_id = Auth::user()->currentTeamId();
+        $atribute = Atribute::where('id', $atribute_id)
+            ->where('team_id', $team_id)
+            ->first();
+        $tag = Tag::where('id', $tag_id)
+            ->where('team_id', $team_id)
+            ->first();
+        if($atribute){
+            if($tag){
+
+                    $atribute->tags()->detach($tag_id);
+                    Session::flash('comment_message', 'Tag sters ');
+                    return redirect()->back();
+
+            }else{
+                Session::flash('danger_message', 'tagul respectiv nu exista');
+                return redirect()->back();
+
+            }
+
+
+        }else{
+            Session::flash('danger_message', 'atributul respectiv nu exista');
+            return redirect()->back();
+
+        }
+
+
+
+
+
+
+
+    }
 }

@@ -30,7 +30,7 @@
             @foreach($atributes as $atribute)
 {{--            @if($atribute->asset)--}}
                <tr>
-                   <td><a href="{{route('atributes.show', $atribute->name)}}">{{$atribute->name}}</td>
+                   <td><a href="{{route('atributes.show', $atribute->id)}}">{{$atribute->name}}</td>
 
                   <td><a  href="{{route('assets.show', $atribute->asset->slug?? "salut")}}">{{$atribute->asset->name?? "asset deleted"}}</td>
 

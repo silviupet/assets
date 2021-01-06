@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AtributeRequest;
+
 use App\Models\Document;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -31,7 +33,8 @@ class AtributesController extends Controller
     public function index()
     {
         $team_id = Auth::user()->currentTeamId();
-        $atributes = Atribute::where('team_id', $team_id)->paginate(10);
+        $atributes = Atribute::where('team_id', $team_id)->latest('expiry_date')->paginate(7);
+
 //        dd($atributes);
 
 ////luam doar atributele care nu al o legatura cu un asset si cele ale caror asset nu a fost sters
@@ -100,8 +103,8 @@ class AtributesController extends Controller
         $request->validate([
             'name' => 'required|max:50|regex:/^[a-zA-Z0-9\s]+$/',
             'description' => 'max:100|regex:/^[a-zA-Z0-9\s]+$/|nullable',
-            'from_date' => 'date',
-            'expiry_date' => 'date',
+            'from_date' => 'date|nullable',
+            'expiry_date' => 'date|nullable',
             'price' => 'numeric|nullable',
             'vendor' => 'max:50|regex:/^[a-zA-Z0-9\s]+$/|nullable',
             'other_conditions' => 'max:100|regex:/^[a-zA-Z0-9\s]+$/|nullable',
@@ -184,7 +187,19 @@ class AtributesController extends Controller
      */
     public function show($id)
     {
-        //
+        $team_id = Auth::user()->currentTeamId();
+        $users = User::all();
+        $tags = Tag::where('team_id', $team_id)->get();
+        $atribute = Atribute::where('id', $id)
+                            ->where('team_id', $team_id)
+                            ->first();
+        if($atribute){
+
+            return view('atributes.show', compact('atribute','users','tags'));
+        }else{
+            Session::flash('danger_message', 'nu ai selectat bine. Mai incearca' );
+            return redirect()->back();
+        }
     }
 
     /**
@@ -255,8 +270,8 @@ class AtributesController extends Controller
         $input = $request->validate([
             'name' => 'required|max:50|regex:/^[a-zA-Z0-9\s]+$/',
             'description' => 'max:100|regex:/^[a-zA-Z0-9\s]+$/|nullable',
-            'from_date' => 'date',
-            'expiry_date' => 'date',
+            'from_date' => 'date|nullable',
+            'expiry_date' => 'date|nullable',
             'price' => 'numeric|nullable',
             'vendor' => 'max:50|regex:/^[a-zA-Z0-9\s]+$/|nullable',
             'other_conditions' => 'max:100|regex:/^[a-zA-Z0-9\s]+$/|nullable',
@@ -290,11 +305,11 @@ class AtributesController extends Controller
 
 
                 $request->session()->flash('comment_message', ' Atribute updated susscefully administratore');
-                return redirect()->route('atributes.index');
+                return redirect()->route('atributes.show' ,$atribute->id);
 
             }else{
                 $request->session()->flash('danger_message' , 'Do yo try to hack this site? Police is on way ');
-                return redirect()->route('assets.index');
+                return redirect()->route('atributes.show' ,$atribute->id);
             }
 
 
@@ -307,10 +322,10 @@ class AtributesController extends Controller
                 $input['user_id'] = Auth::user()->id;
                 $atribute->update($input);
                 $request->session()->flash('comment_message', ' Atribute updated susscefully editore');
-                return redirect()->route('assets.index');
+                return redirect()->route('atributes.show' ,$atribute->id);
             }else{
                 $request->session()->flash('danger_message' , 'Do yo try to hack this site? Police is on way ');
-                return redirect()->route('assets.index');
+                return redirect()->route('atributes.show' ,$atribute->id);
             }
         }else{
             $request->session()->flash('danger_message','nu poti modifica daca nu esti administrator owner sau editor');
@@ -393,6 +408,23 @@ class AtributesController extends Controller
             Session::flash('danger_message' , 'trebuie sa fi administrator, owner  sau editor sa stergi acest mesaj' );
             return redirect()->route('atributes.index');
         }
+    }
+
+    public function indexbytag($id)
+    {
+
+        $team_id = Auth::user()->currentTeamId();
+        $tag = Tag::where('id', $id)
+            ->where('team_id', $team_id)
+            ->first();
+
+
+
+
+        $atributes = $tag->atributes()->get();
+
+        return view('atributes.indexbytag', compact('atributes','tag'));
+
     }
 
 }

@@ -51,7 +51,7 @@ class AssetsController extends Controller
 
         $team_id = Auth::user()->currentTeamId();
 
-        $assets = Asset::where('team_id', $team_id)->get();
+        $assets = Asset::where('team_id', $team_id)->latest('updated_at')->Paginate(7);
 //
 
         return view('assets.index', compact ('assets'));

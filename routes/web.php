@@ -45,9 +45,12 @@ Route::POST('{atribute}/documents' , 'DocumentsController@storeDocumentOfAnAtrib
 //
 //return (Auth::user()->currentTeam->name);
 //});
-Route::get('/test', function () {
-    return view('test.admin_layout');
-});
+//Route::get('/test', function () {
+//    return view('test.admin_layout');
+//});
 //Route::get('/tema ', function () {
 //    return view('layouts.master_theme');
 //});
+Route::get('/addTag/{atribute}/{tag}', 'TagsController@addTag')->name('atribute.addTag');
+Route::get('/deleteTag/{atribute}/{tag}', 'TagsController@deleteTag')->name('atribute.deleteTag');
+Route::get('atributes/indexbytag/{tag}', 'AtributesController@indexbytag')->name('atributes.indexbytag');
