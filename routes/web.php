@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +56,49 @@ Route::POST('{atribute}/documents' , 'DocumentsController@storeDocumentOfAnAtrib
 Route::get('/addTag/{atribute}/{tag}', 'TagsController@addTag')->name('atribute.addTag');
 Route::get('/deleteTag/{atribute}/{tag}', 'TagsController@deleteTag')->name('atribute.deleteTag');
 Route::get('atributes/indexbytag/{tag}', 'AtributesController@indexbytag')->name('atributes.indexbytag');
+ROUTE::get('/mail', function(){
+
+    $data =['title'=>'hi this is testing mailgun',
+        'content'=>'this is testing mail from asset site'
+        ];
+    Mail::send('email.test', $data, function($message){
+
+        $message->to('silviupet@gmail.com', 'silviu')->subject('test maail from mailgun asset');
+    });
+
+
+});
+
+Route::get('/atributesexpired', function(){
+    $atributes =  \App\Models\Atribute::where('expiry_date',  \Carbon\carbon::now()->addDays(15)->format('Y-m-d') )->get();
+
+
+
+    foreach($atributes as $atribute){
+
+        $team_id = $atribute->team_id;
+        $team = \App\Models\Team::findOrFail($team_id);
+        $user =$team->owner()->first();
+
+            $data = ['atribute'=>$atribute,
+                    'user'=>$user
+            ];
+            Mail::send('email.atributesexpired', $data, function($message) use ($user){
+
+                $message->to($user->email , $user->name)->subject('test mail from mailgun asset')->from('asset@asset.com','Asset Site');
+            });
+
+
+
+ }
+
+    ;
+
+
+
+
+
+//foreach ($atributes as $atribute){
+    ;
+//}
+});

@@ -38,11 +38,11 @@
 
                 <div class="form-group">
                     {!!Form::label('from_date' , 'From Date: ')!!}
-                    {!!FORM::date('from_date', \Carbon\carbon::now() , ['class'=>'form-control'])!!}
+                    {!!FORM::date('from_date', null , ['class'=>'form-control'])!!}
                 </div>
                 <div class="form-group">
                     {!!Form::label('expiry_date' , 'Expiry Date: ')!!}
-                    {!!FORM::date('expiry_date', \Carbon\carbon::now(), ['class'=>'form-control'])!!}
+                    {!!FORM::date('expiry_date', null , ['class'=>'form-control'])!!}
                 </div>
 
 

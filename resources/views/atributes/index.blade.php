@@ -36,8 +36,9 @@
 
 
                    <td>{{$atribute->description}}</td>
-                   <td>{{$atribute->from_date}}</td>
-                   <td>{{$atribute->expiry_date}}</td>
+{{--                   {{var_dump($atribute->from_date)}}--}}
+                   <td>{{\Carbon\carbon::parse($atribute->from_date)->format('d-m-Y')}}</td>
+                   <td>{{\Carbon\carbon::parse($atribute->expiry_date)->format('d-m-Y')}}</td>
                    <td>{{$atribute->price}}</td>
                    <td>{{$atribute->currency}}</td>
                    <td>{{$atribute->vendor}}</td>
